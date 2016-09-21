@@ -1,0 +1,2493 @@
+PROTOC src/caffe/proto/caffe.proto
+CXX src/caffe/blob.cpp
+CXX src/caffe/common.cpp
+CXX src/caffe/data_transformer.cpp
+CXX src/caffe/internal_thread.cpp
+CXX src/caffe/layer_factory.cpp
+CXX src/caffe/layers/absval_layer.cpp
+CXX src/caffe/layers/accuracy_layer.cpp
+CXX src/caffe/layers/argmax_layer.cpp
+CXX src/caffe/layers/base_conv_layer.cpp
+CXX src/caffe/layers/base_data_layer.cpp
+CXX src/caffe/layers/bnll_layer.cpp
+CXX src/caffe/layers/concat_layer.cpp
+CXX src/caffe/layers/contrastive_loss_layer.cpp
+CXX src/caffe/layers/conv_layer.cpp
+CXX src/caffe/layers/cudnn_conv_layer.cpp
+CXX src/caffe/layers/cudnn_pooling_layer.cpp
+CXX src/caffe/layers/cudnn_relu_layer.cpp
+CXX src/caffe/layers/cudnn_sigmoid_layer.cpp
+CXX src/caffe/layers/cudnn_softmax_layer.cpp
+CXX src/caffe/layers/cudnn_tanh_layer.cpp
+CXX src/caffe/layers/data_layer.cpp
+CXX src/caffe/layers/deconv_layer.cpp
+CXX src/caffe/layers/dropout_layer.cpp
+CXX src/caffe/layers/dummy_data_layer.cpp
+CXX src/caffe/layers/eltwise_layer.cpp
+CXX src/caffe/layers/embed_layer.cpp
+CXX src/caffe/layers/euclidean_loss_layer.cpp
+CXX src/caffe/layers/exp_layer.cpp
+CXX src/caffe/layers/flatten_layer.cpp
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/detail/wrap_python.hpp:50:0,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/detail/prefix.hpp:13,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/args.hpp:8,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:11,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Anaconda-2.2.0/release/include/python2.7/pyconfig.h:1188:0: warning: "_POSIX_C_SOURCE" redefined
+ #define _POSIX_C_SOURCE 200112L
+ ^
+In file included from /rcg/software/Linux/RHEL/6/x86_64/COMPILER/GNU/4.9.2/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/os_defines.h:39:0,
+                 from /rcg/software/Linux/RHEL/6/x86_64/COMPILER/GNU/4.9.2/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++config.h:430,
+                 from /rcg/software/Linux/RHEL/6/x86_64/COMPILER/GNU/4.9.2/include/c++/4.9.2/string:38,
+                 from src/caffe/layer_factory.cpp:1:
+/usr/include/features.h:162:0: note: this is the location of the previous definition
+ # define _POSIX_C_SOURCE 200809L
+ ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/detail/wrap_python.hpp:50:0,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/detail/prefix.hpp:13,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/args.hpp:8,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:11,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Anaconda-2.2.0/release/include/python2.7/pyconfig.h:1210:0: warning: "_XOPEN_SOURCE" redefined
+ #define _XOPEN_SOURCE 600
+ ^
+In file included from /rcg/software/Linux/RHEL/6/x86_64/COMPILER/GNU/4.9.2/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/os_defines.h:39:0,
+                 from /rcg/software/Linux/RHEL/6/x86_64/COMPILER/GNU/4.9.2/include/c++/4.9.2/x86_64-unknown-linux-gnu/bits/c++config.h:430,
+                 from /rcg/software/Linux/RHEL/6/x86_64/COMPILER/GNU/4.9.2/include/c++/4.9.2/string:38,
+                 from src/caffe/layer_factory.cpp:1:
+/usr/include/features.h:164:0: note: this is the location of the previous definition
+ # define _XOPEN_SOURCE 700
+ ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/handle.hpp:10:0,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/args_fwd.hpp:10,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/args.hpp:10,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:11,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/cast.hpp: In function ‘void boost::python::detail::assert_castable(boost::type<Target>*)’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/cast.hpp:73:20: warning: typedef ‘must_be_a_complete_type’ locally defined but not used [-Wunused-local-typedefs]
+       typedef char must_be_a_complete_type[sizeof(T)];
+                    ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/detail/invoke.hpp:21:0,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/detail/caller.hpp:16,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/object/function_handle.hpp:8,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/converter/arg_to_python.hpp:19,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/call.hpp:15,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/object_core.hpp:14,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/args.hpp:25,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:11,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/to_python_value.hpp: In member function ‘PyObject* boost::python::detail::registry_to_python_value<T>::operator()(boost::python::detail::registry_to_python_value<T>::argument_type) const’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/to_python_value.hpp:150:52: warning: typedef ‘r’ locally defined but not used [-Wunused-local-typedefs]
+       typedef converter::registered<argument_type> r;
+                                                    ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/data_members.hpp:15:0,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/class.hpp:17,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:18,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/make_function.hpp: In function ‘boost::python::api::object boost::python::detail::make_function_aux(F, const CallPolicies&, const Sig&, const keyword_range&, NumKeywords)’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/make_function.hpp:58:32: warning: typedef ‘assertion’ locally defined but not used [-Wunused-local-typedefs]
+           >::too_many_keywords assertion;
+                                ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/class.hpp:20:0,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:18,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/init.hpp: In constructor ‘boost::python::init<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>::init(const char*, const boost::python::detail::keywords<N>&)’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/init.hpp:249:34: warning: typedef ‘assertion’ locally defined but not used [-Wunused-local-typedefs]
+             >::too_many_keywords assertion;
+                                  ^
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/init.hpp: In constructor ‘boost::python::init<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>::init(const boost::python::detail::keywords<N>&, const char*)’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/init.hpp:258:34: warning: typedef ‘assertion’ locally defined but not used [-Wunused-local-typedefs]
+             >::too_many_keywords assertion;
+                                  ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/class.hpp:24:0,
+                 from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:18,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/object/pickle_support.hpp: In static member function ‘static void boost::python::detail::pickle_suite_registration::register_(Class_&, ...)’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/object/pickle_support.hpp:110:31: warning: typedef ‘error_type’ locally defined but not used [-Wunused-local-typedefs]
+           Class_>::error_type error_type;
+                               ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:18:0,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/class.hpp: In static member function ‘static void boost::python::detail::error::virtual_function_default<T, Fn>::must_be_derived_class_member(const Default&)’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/class.hpp:144:68: warning: typedef ‘test1’ locally defined but not used [-Wunused-local-typedefs]
+             typedef typename assertion<is_polymorphic<T> >::failed test1;
+                                                                    ^
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/class.hpp:146:81: warning: typedef ‘test2’ locally defined but not used [-Wunused-local-typedefs]
+             typedef typename assertion<is_member_function_pointer<Fn> >::failed test2;
+                                                                                 ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:22:0,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/def.hpp: In function ‘void boost::python::detail::def_from_helper(const char*, const F&, const Helper&)’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/def.hpp:40:19: warning: typedef ‘assertion’ locally defined but not used [-Wunused-local-typedefs]
+           >::type assertion;
+                   ^
+In file included from /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python.hpp:41:0,
+                 from ./include/caffe/python_layer.hpp:4,
+                 from src/caffe/layer_factory.cpp:9:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/make_constructor.hpp: In function ‘boost::python::api::object boost::python::detail::make_constructor_aux(F, const CallPolicies&, const Sig&, const keyword_range&, NumKeywords)’:
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/python/make_constructor.hpp:186:32: warning: typedef ‘assertion’ locally defined but not used [-Wunused-local-typedefs]
+           >::too_many_keywords assertion;
+                                ^
+CXX src/caffe/layers/hdf5_data_layer.cpp
+CXX src/caffe/layers/hdf5_output_layer.cpp
+CXX src/caffe/layers/hinge_loss_layer.cpp
+CXX src/caffe/layers/im2col_layer.cpp
+CXX src/caffe/layers/image_data_layer.cpp
+CXX src/caffe/layers/infogain_loss_layer.cpp
+CXX src/caffe/layers/inner_product_layer.cpp
+CXX src/caffe/layers/loss_layer.cpp
+CXX src/caffe/layers/lrn_layer.cpp
+CXX src/caffe/layers/lstm_layer.cpp
+CXX src/caffe/layers/lstm_unit_layer.cpp
+CXX src/caffe/layers/memory_data_layer.cpp
+CXX src/caffe/layers/multinomial_logistic_loss_layer.cpp
+CXX src/caffe/layers/mvn_layer.cpp
+CXX src/caffe/layers/neuron_layer.cpp
+CXX src/caffe/layers/pooling_layer.cpp
+CXX src/caffe/layers/power_layer.cpp
+CXX src/caffe/layers/prelu_layer.cpp
+CXX src/caffe/layers/recurrent_layer.cpp
+CXX src/caffe/layers/relu_layer.cpp
+CXX src/caffe/layers/reshape_layer.cpp
+CXX src/caffe/layers/rnn_layer.cpp
+CXX src/caffe/layers/sigmoid_cross_entropy_loss_layer.cpp
+CXX src/caffe/layers/sigmoid_layer.cpp
+CXX src/caffe/layers/silence_layer.cpp
+CXX src/caffe/layers/slice_layer.cpp
+CXX src/caffe/layers/softmax_layer.cpp
+CXX src/caffe/layers/softmax_loss_layer.cpp
+CXX src/caffe/layers/split_layer.cpp
+CXX src/caffe/layers/tanh_layer.cpp
+CXX src/caffe/layers/threshold_layer.cpp
+CXX src/caffe/layers/window_data_layer.cpp
+CXX src/caffe/net.cpp
+CXX src/caffe/solver.cpp
+CXX src/caffe/syncedmem.cpp
+CXX src/caffe/util/benchmark.cpp
+CXX src/caffe/util/db.cpp
+CXX src/caffe/util/im2col.cpp
+CXX src/caffe/util/insert_splits.cpp
+CXX src/caffe/util/io.cpp
+CXX src/caffe/util/math_functions.cpp
+CXX src/caffe/util/upgrade_proto.cpp
+NVCC src/caffe/layers/absval_layer.cu
+NVCC src/caffe/layers/base_data_layer.cu
+NVCC src/caffe/layers/bnll_layer.cu
+NVCC src/caffe/layers/concat_layer.cu
+NVCC src/caffe/layers/contrastive_loss_layer.cu
+NVCC src/caffe/layers/conv_layer.cu
+NVCC src/caffe/layers/cudnn_conv_layer.cu
+NVCC src/caffe/layers/cudnn_pooling_layer.cu
+NVCC src/caffe/layers/cudnn_relu_layer.cu
+NVCC src/caffe/layers/cudnn_sigmoid_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/cudnn_softmax_layer.cu
+NVCC src/caffe/layers/cudnn_tanh_layer.cu
+NVCC src/caffe/layers/deconv_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/dropout_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/eltwise_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/embed_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/euclidean_loss_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/exp_layer.cu
+NVCC src/caffe/layers/hdf5_data_layer.cu
+NVCC src/caffe/layers/hdf5_output_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/im2col_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/inner_product_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/lrn_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/lstm_unit_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/mvn_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/pooling_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/power_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/prelu_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/recurrent_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/relu_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/sigmoid_cross_entropy_loss_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/sigmoid_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/silence_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/slice_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/softmax_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/softmax_loss_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/split_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/tanh_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/layers/threshold_layer.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/util/im2col.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+NVCC src/caffe/util/math_functions.cu
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+CXX tools/caffe.cpp
+CXX tools/compute_image_mean.cpp
+CXX tools/convert_imageset.cpp
+CXX tools/device_query.cpp
+CXX tools/extract_features.cpp
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+CXX tools/finetune_net.cpp
+CXX tools/net_speed_benchmark.cpp
+CXX tools/test_net.cpp
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+CXX tools/train_net.cpp
+CXX tools/upgrade_net_proto_binary.cpp
+CXX tools/upgrade_net_proto_text.cpp
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+CXX examples/cifar10/convert_cifar_data.cpp
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+CXX examples/mnist/convert_mnist_data.cpp
+CXX examples/siamese/convert_mnist_siamese_data.cpp
+CXX .build_release/src/caffe/proto/caffe.pb.cc
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(49): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(65): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(91): warning: "cc" clobber ignored
+
+/cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/smart_ptr/detail/sp_counted_base_gcc_x86.hpp(75): warning: variable "tmp" was set but never used
+
+AR -o .build_release/lib/libcaffe.a
+LD -o .build_release/lib/libcaffe.so
+CXX/LD -o .build_release/tools/caffe.bin
+CXX/LD -o .build_release/tools/compute_image_mean.bin
+CXX/LD -o .build_release/tools/convert_imageset.bin
+CXX/LD -o .build_release/tools/device_query.bin
+CXX/LD -o .build_release/tools/extract_features.bin
+CXX/LD -o .build_release/tools/finetune_net.bin
+CXX/LD -o .build_release/tools/net_speed_benchmark.bin
+CXX/LD -o .build_release/tools/test_net.bin
+CXX/LD -o .build_release/tools/train_net.bin
+CXX/LD -o .build_release/tools/upgrade_net_proto_binary.bin
+CXX/LD -o .build_release/tools/upgrade_net_proto_text.bin
+CXX/LD -o .build_release/examples/cifar10/convert_cifar_data.bin
+CXX/LD -o .build_release/examples/mnist/convert_mnist_data.bin
+CXX/LD -o .build_release/examples/siamese/convert_mnist_siamese_data.bin
