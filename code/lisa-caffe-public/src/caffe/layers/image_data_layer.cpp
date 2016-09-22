@@ -44,6 +44,7 @@ void ImageDataLayer<Dtype>::DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
   int label;
   while (infile >> filename >> label) {
     lines_.push_back(std::make_pair(filename, label));
+    // LOG(INFO) << "filename: " << filename << " label: " << label << "\n";
   }
 
   if (this->layer_param_.image_data_param().shuffle()) {

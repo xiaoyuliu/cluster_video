@@ -12,6 +12,8 @@ class TripletLayer(caffe.Layer):
 	def reshape(self, bottom, top):
 		feats = bottom[0].data
 		labels= bottom[1].data
+		# from IPython.core.debugger import Tracer
+		# Tracer()()
 		# param =json.loads( self.param_str )
 		negative_sample_number = int(5)
 		n_neg = negative_sample_number

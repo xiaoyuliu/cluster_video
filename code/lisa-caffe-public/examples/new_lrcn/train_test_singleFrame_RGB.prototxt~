@@ -386,6 +386,7 @@ layer {
 #  top: "loss"
 #}
 
+
 layer {
   name: "triplets"
   type: "Python"
@@ -397,11 +398,7 @@ layer {
   python_param {
     module: "mylayers"
     layer: "TripletLayer"
-    #param_str: '{"numeric_arg":5}'
   }
-#  include {
-#    phase: TEST
-#  }
 }
 
 layer {
@@ -418,10 +415,29 @@ layer {
   loss_weight: 1
 }
 
+#layer {
+#  name: "accuracy"
+#  type: "Accuracy"
+#  bottom: "fc8-ucf"
+#  bottom: "label"
+#  top: "accuracy"
+#}
+
 layer {
-  name: "accuracy"
-  type: "Accuracy"
+  name: "prob"
+  type: "Softmax"
   bottom: "fc8-ucf"
-  bottom: "label"
-  top: "accuracy"
+  top: "prob"
 }
+
+layer {
+  name: "purity"
+  type: "Python"
+  bottom: "prob"
+  bottom: "label"
+  top: "purity"
+  python_param {
+    module: "mylayers"
+    layer: "PurityLayer"
+  }
+#}
