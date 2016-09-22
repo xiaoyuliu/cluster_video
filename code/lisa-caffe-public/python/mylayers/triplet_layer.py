@@ -60,7 +60,7 @@ class TripletLayer(caffe.Layer):
 		# Tracer()()
 		if n_trip==0:
 			return
-		print '---------number of triplets: ', n_trip
+		# print '---------number of triplets: ', n_trip
 
 		A = np.zeros([n_trip, feats.shape[1]])
 		B = np.zeros([n_trip, feats.shape[1]])

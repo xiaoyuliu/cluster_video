@@ -8,6 +8,7 @@ from multiprocessing import Process, Queue
 from caffe._caffe import RawBlobVec
 from sklearn import preprocessing
 import time
+import scipy.spatial.distance as ssd
 
 
 class TripletLossLayer(caffe.Layer):
@@ -31,31 +32,25 @@ class TripletLossLayer(caffe.Layer):
         anchor = bottom[0].data
         positive = bottom[1].data
         negative = bottom[2].data
-        # from IPython.core.debugger import Tracer
-        # Tracer()()
 
         loss = float(0)
         self.no_residual_list = []
         for i in range(anchor.shape[0]):
-            # print time.ctime(), " starting forward in loss layer" 
             # start_time = time.time()
-            a = anchor[i]
-            p = positive[i]
-            n = negative[i]
-            ap2 = [(aa - bb)**2 for aa, bb in zip(a, p)]
-            an2 = [(aa - bb)**2 for aa, bb in zip(a, n)]
-            ap = sum(ap2)
-            an = sum(an2)
+            # from IPython.core.debugger import Tracer
+            # Tracer()()
+            ap = ssd.cdist( np.array([anchor[i]]), np.array([positive[i]]), 'sqeuclidean' )[0][0]
+            an = ssd.cdist( np.array([anchor[i]]), np.array([negative[i]]), 'sqeuclidean' )[0][0]
             
             dist = (self.margin + ap - an) # safety margin
             _loss = max(dist, 0.0) # hinge
             if i == 0:
-                # print ('loss:'+str(_loss)+' ap:'+str(ap)+' an:'+str(an))
+                # print ('loss:'+str(_loss)+' ap:'+str(ap)+' an:'+str(an)+'------------------------------')
                 pass
             if _loss == 0:
                 self.no_residual_list.append(i)
             loss += _loss
-        loss = loss/(2*anchor.shape[0])
+        loss = loss / ( 2*anchor.shape[0] )
         top[0].data[...] = loss
         # print("--- %s seconds for each forward in loss layer ---" % (time.time() - start_time))
     def backward(self, top, propagate_down, bottom):
@@ -79,7 +74,6 @@ class TripletLossLayer(caffe.Layer):
                     x_n = negative[i]
                     # from IPython.core.debugger import Tracer
                     # Tracer()()
-                    # print 'dist_ap:',dist_ap, ' dist_an:',dist_an
                     bottom[0].diff[i][...] = self.a*2*(x_n-x_p)
                     bottom[1].diff[i][...] = self.a*2*(x_p-x_a)
                     bottom[2].diff[i][...] = self.a*2*(x_a-x_n)
@@ -89,4 +83,5 @@ class TripletLossLayer(caffe.Layer):
                     bottom[1].diff[i][...] = np.zeros([1,anchor[[0],:].shape[1]])
                     bottom[2].diff[i][...] = np.zeros([1,anchor[[0],:].shape[1]])
 
-        # print("--- %s seconds for backward in loss layer ---" % (time.time() - start_time))
+        for i in range(len(bottom)):
+            bottom[i].diff[...] /= bottom[i].num
