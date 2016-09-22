@@ -7,6 +7,7 @@ import yaml
 from multiprocessing import Process, Queue
 from caffe._caffe import RawBlobVec
 from sklearn import preprocessing
+import time
 
 
 class TripletLossLayer(caffe.Layer):
@@ -25,6 +26,7 @@ class TripletLossLayer(caffe.Layer):
         top[0].reshape(1)
 
     def forward(self, bottom, top):
+        # print time.ctime(), " starting forward in loss layer" 
         self.margin = 1
         anchor = bottom[0].data
         positive = bottom[1].data
@@ -35,26 +37,30 @@ class TripletLossLayer(caffe.Layer):
         loss = float(0)
         self.no_residual_list = []
         for i in range(anchor.shape[0]):
+            # print time.ctime(), " starting forward in loss layer" 
+            # start_time = time.time()
             a = anchor[i]
             p = positive[i]
             n = negative[i]
             ap2 = [(aa - bb)**2 for aa, bb in zip(a, p)]
             an2 = [(aa - bb)**2 for aa, bb in zip(a, n)]
-            ap = math.sqrt(sum(ap2))
-            an = math.sqrt(sum(an2))
+            ap = sum(ap2)
+            an = sum(an2)
             
-            dist = (self.margin + ap - an)
-            _loss = max(dist, 0.0)
+            dist = (self.margin + ap - an) # safety margin
+            _loss = max(dist, 0.0) # hinge
             if i == 0:
-                print ('loss:'+str(_loss)+' ap:'+str(ap)+' an:'+str(an))
+                # print ('loss:'+str(_loss)+' ap:'+str(ap)+' an:'+str(an))
+                pass
             if _loss == 0:
                 self.no_residual_list.append(i)
             loss += _loss
-
         loss = loss/(2*anchor.shape[0])
         top[0].data[...] = loss
-
+        # print("--- %s seconds for each forward in loss layer ---" % (time.time() - start_time))
     def backward(self, top, propagate_down, bottom):
+        # print time.ctime(), " starting backward in loss layer" 
+        # start_time = time.time()
         anchor = bottom[0].data
         positive = bottom[1].data
         negative = bottom[2].data
@@ -71,22 +77,16 @@ class TripletLossLayer(caffe.Layer):
                     x_a = anchor[i]
                     x_p = positive[i]
                     x_n = negative[i]
-                    apdist = [(a - b)**2 for a, b in zip(x_a, x_p)]
-                    andist = [(a - b)**2 for a, b in zip(x_a, x_n)]
-                    dist_ap = math.sqrt(sum(apdist))
-                    dist_an = math.sqrt(sum(andist))
-                    if dist_ap == 0:
-                        dist_ap = 0.00000000001
-                    if dist_an == 0:
-                        dist_an = 0.00000000001
                     # from IPython.core.debugger import Tracer
                     # Tracer()()
                     # print 'dist_ap:',dist_ap, ' dist_an:',dist_an
-                    bottom[0].diff[i][...] = self.a*((x_a-x_p)/dist_ap - (x_a-x_n)/dist_an)
-                    bottom[1].diff[i][...] = self.a*(x_p-x_a)/dist_ap
-                    bottom[2].diff[i][...] = self.a*(x_a-x_n)/dist_an
+                    bottom[0].diff[i][...] = self.a*2*(x_n-x_p)
+                    bottom[1].diff[i][...] = self.a*2*(x_p-x_a)
+                    bottom[2].diff[i][...] = self.a*2*(x_a-x_n)
                     count += 1
                 else:
                     bottom[0].diff[i][...] = np.zeros([1,anchor[[0],:].shape[1]])
                     bottom[1].diff[i][...] = np.zeros([1,anchor[[0],:].shape[1]])
                     bottom[2].diff[i][...] = np.zeros([1,anchor[[0],:].shape[1]])
+
+        # print("--- %s seconds for backward in loss layer ---" % (time.time() - start_time))

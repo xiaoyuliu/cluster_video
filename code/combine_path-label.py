@@ -1,9 +1,10 @@
 import optparse, os, sys, pdb
 import scipy.io as sio
+import pdb
 
 optparser = optparse.OptionParser()
-optparser.add_option("--pn", "--num", dest="num", default=None, help="Input the number of clusters")
-optparser.add_option("--li", "--label", dest="label", default=None, help="Input label file name")
+optparser.add_option("--pn", "--num", dest="num", default='20', help="Input number of clusters")
+optparser.add_option("--li", "--label", dest="label", default='UCF-101-label-20-0ft.mat', help="Input label file name")
 optparser.add_option("--o",  "--output",dest="output",default=None, help="Input output file name")
 optparser.add_option("--d", "--database",dest="database",default=None, help="Input dataset name")
 
@@ -13,7 +14,7 @@ output_path= os.path.join( data_root, 'output' )
 
 def combine_pl(pnum, labelin, pathout, database):
 	label_file = os.path.join( output_path, database, labelin )
-	output_file=os.path.join( output_path, database, pathout)
+	output_file= os.path.join( output_path, database, pathout)
 	database_path = os.path.join( data_root, 'datasets', database )
 	assert os.path.isdir(database_path), "Database file dose not exist"
 	cnames = os.listdir(database_path)
@@ -35,8 +36,9 @@ def combine_pl(pnum, labelin, pathout, database):
 				fnums  = len(fnames)
 				count  = 1
 				while count+16 <= fnums:
-					content = fms_path+' '+str(count)+' '+str(labels[vcount][0]-1)+'\n'
+					content = fms_path+' '+str(count)+' '+str(labels[vcount][0])+'\n'
 					# content2= os.path.join(outdata_path, vname, fnames[count-1][:-4])
+					# pdb.set_trace()
 					print "write to inputfile without label:", content 
 					# print "write to outputfile:", content2
 					inputf.write(content)

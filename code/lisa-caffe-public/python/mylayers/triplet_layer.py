@@ -1,7 +1,7 @@
 import caffe
 import numpy as np
 import random
-import json
+import time
 
 
 class TripletLayer(caffe.Layer):
@@ -35,6 +35,9 @@ class TripletLayer(caffe.Layer):
 		top[2].reshape(n_trip, feats.shape[1])
 
 	def forward(self, bottom, top):
+
+		# start_time = time.time()
+
 		feats = bottom[0].data
 		labels= bottom[1].data
 		# param =json.loads( self.param_str )
@@ -57,6 +60,7 @@ class TripletLayer(caffe.Layer):
 		# Tracer()()
 		if n_trip==0:
 			return
+		print '---------number of triplets: ', n_trip
 
 		A = np.zeros([n_trip, feats.shape[1]])
 		B = np.zeros([n_trip, feats.shape[1]])
@@ -104,6 +108,8 @@ class TripletLayer(caffe.Layer):
 		top[0].data[...] = A
 		top[1].data[...] = B
 		top[2].data[...] = C
+
+		# print("--- %s seconds for forward ---" % (time.time() - start_time))
 		
 	def backward(self, top, propagate_down, bottom):
 		pass

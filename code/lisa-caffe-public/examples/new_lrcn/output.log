@@ -1,0 +1,13 @@
+--- 0.00237703323364 seconds for reshape ---
+--- 0.0345139503479 seconds for forward ---
+loss:1243.23621535 ap:9337.04374983 an:8094.80753448
+--- 0.00274896621704 seconds for reshape ---
+--- 0.0177500247955 seconds for forward ---
+loss:0.0 ap:9681.11943761 an:11503.0539814
+--- 0.00277805328369 seconds for reshape ---
+--- 0.0221729278564 seconds for forward ---
+loss:315.160121985 ap:10679.1330434 an:10364.9729214
+--- 0.00197696685791 seconds for reshape ---
+--- 0.0261490345001 seconds for forward ---
+loss:0.0 ap:7491.12564436 an:8467.38190577
+Done.

@@ -397,11 +397,7 @@ layer {
   python_param {
     module: "mylayers"
     layer: "TripletLayer"
-    #param_str: '{"numeric_arg":5}'
   }
-#  include {
-#    phase: TEST
-#  }
 }
 
 layer {
