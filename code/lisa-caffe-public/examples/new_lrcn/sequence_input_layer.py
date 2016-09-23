@@ -22,7 +22,7 @@ import skimage.io
 import copy
 
 flow_frames = 'flow_images/'
-RGB_frames = 'frames/'
+RGB_frames = '/cs/vml2/xla193/cluster_video/datasets/UCF-101/'
 test_frames = 16 
 train_frames = 16
 test_buffer = 3
@@ -136,7 +136,7 @@ class videoRead(caffe.Layer):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = 'ucf101_split1_testVideos.txt' 
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lstm_random.txt' 
 
   def setup(self, bottom, top):
     random.seed(10)
@@ -149,7 +149,8 @@ class videoRead(caffe.Layer):
     current_line = 0
     self.video_order = []
     for ix, line in enumerate(f_lines):
-      video = line.split(' ')[0].split('/')[1]
+      # video = line.split(' ')[0].split('/')[1]
+      video = line.split(' ')[0]
       l = int(line.split(' ')[1])
       frames = glob.glob('%s%s/*.jpg' %(self.path_to_images, video))
       num_frames = len(frames)
@@ -294,7 +295,7 @@ class videoReadTrain_RGB(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = 'ucf101_split1_trainVideos.txt' 
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lstm_random.txt' 
 
 class videoReadTest_RGB(videoRead):
 
@@ -309,4 +310,4 @@ class videoReadTest_RGB(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = 'ucf101_split1_testVideos.txt' 
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lstm_random.txt' 
