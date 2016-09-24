@@ -11,7 +11,7 @@ max_iter: 30000
 momentum: 0.9
 weight_decay: 0.005
 snapshot: 5000
-snapshot_prefix: "snapshots_lstm_RGB"
+snapshot_prefix: "/cs/vml2/xla193/cluster_video/output/UCF-101/snapshots_lstm_RGB/"
 solver_mode: GPU
 device_id: 0
 random_seed: 1701
