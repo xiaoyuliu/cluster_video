@@ -2,7 +2,7 @@
 
 #Data layer for video.  Change flow_frames and RGB_frames to be the path to the flow and RGB frames.
 
-import sys
+import sys, os
 sys.path.append('../../python')
 import caffe
 import io
@@ -90,6 +90,7 @@ class sequenceGeneratorVideo(object):
       frames = []
 
       for i in range(rand_frame,rand_frame+self.clip_length):
+        # pdb.set_trace()
         frames.append(self.video_dict[key]['frames'] %i)
      
       im_paths.extend(frames) 
@@ -149,13 +150,15 @@ class videoRead(caffe.Layer):
     current_line = 0
     self.video_order = []
     for ix, line in enumerate(f_lines):
-      # video = line.split(' ')[0].split('/')[1]
+      #original: video = line.split(' ')[0].split('/')[1]
       video = line.split(' ')[0]
       l = int(line.split(' ')[1])
       frames = glob.glob('%s%s/*.jpg' %(self.path_to_images, video))
       num_frames = len(frames)
       video_dict[video] = {}
-      video_dict[video]['frames'] = frames[0].split('.')[0] + '.%04d.jpg'
+      video_dict[video]['frames'] = os.path.join( self.path_to_images, video, '%06d.jpg')
+      # pdb.set_trace()
+      #original: video_dict[video]['frames'] = frames[0].split(' ')[0] + '.%06d.jpg'
       video_dict[video]['reshape'] = (240,320)
       video_dict[video]['crop'] = (227, 227)
       video_dict[video]['num_frames'] = num_frames
