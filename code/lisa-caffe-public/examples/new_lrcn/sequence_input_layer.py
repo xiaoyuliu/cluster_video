@@ -25,8 +25,8 @@ flow_frames = 'flow_images/'
 RGB_frames = '/cs/vml2/xla193/cluster_video/datasets/UCF-101/'
 test_frames = 16 
 train_frames = 16
-test_buffer = 10
-train_buffer = 18
+test_buffer = 40
+train_buffer = 40
 
 def processImageCrop(im_info, transformer, flow):
   im_path = im_info[0]
