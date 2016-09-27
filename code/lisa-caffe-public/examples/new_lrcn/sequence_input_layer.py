@@ -25,8 +25,8 @@ flow_frames = 'flow_images/'
 RGB_frames = '/cs/vml2/xla193/cluster_video/datasets/UCF-101/'
 test_frames = 16 
 train_frames = 16
-test_buffer = 3
-train_buffer = 24
+test_buffer = 10
+train_buffer = 18
 
 def processImageCrop(im_info, transformer, flow):
   im_path = im_info[0]
@@ -68,19 +68,20 @@ class sequenceGeneratorVideo(object):
  
     if self.idx + self.buffer_size >= self.num_videos:
       idx_list = range(self.idx, self.num_videos)
-      idx_list.extend(range(0, self.buffer_size-(self.num_videos-self.idx)))
+      idx_list.extend(range(0, self.buffer_size-(self.num_videos-self.idx))) # add zeros after 0-self.num_videos-1
     else:
-      idx_list = range(self.idx, self.idx+self.buffer_size)
+      idx_list = range(self.idx, self.idx+self.buffer_size) # process self.buffer_size videos once at most
     
 
     for i in idx_list:
-      key = self.video_order[i]
+      key = self.video_order[i] # key = video frames holder path: eg: /datasets/UCF-101/ApplyEyeMakeup/v_ApplyEyeMakeup_g01_c01
+                                # not! /datasets/UCF-101/ApplyEyeMakeup/v_ApplyEyeMakeup_g01_c01/ <-
       label = self.video_dict[key]['label']
       video_reshape = self.video_dict[key]['reshape']
       video_crop = self.video_dict[key]['crop']
-      label_r.extend([label]*self.clip_length)
+      label_r.extend([label]*self.clip_length) # label list for this video clip, should be the same
 
-      im_reshape.extend([(video_reshape)]*self.clip_length)
+      im_reshape.extend([(video_reshape)]*self.clip_length) # shape list for this video clip, should be the same
       r0 = int(random.random()*(video_reshape[0] - video_crop[0]))
       r1 = int(random.random()*(video_reshape[1] - video_crop[1]))
       im_crop.extend([(r0, r1, r0+video_crop[0], r1+video_crop[1])]*self.clip_length)     
@@ -130,8 +131,8 @@ class videoRead(caffe.Layer):
     self.train_or_test = 'test'
     self.flow = False
     self.buffer_size = test_buffer  #num videos processed per batch
-    self.frames = test_frames   #length of processed clip
-    self.N = self.buffer_size*self.frames
+    self.frames = test_frames   #length of processed clip per video
+    self.N = self.buffer_size*self.frames #length of frames required to be processed
     self.idx = 0
     self.channels = 3
     self.height = 227
@@ -154,7 +155,7 @@ class videoRead(caffe.Layer):
       video = line.split(' ')[0]
       l = int(line.split(' ')[1])
       frames = glob.glob('%s%s/*.jpg' %(self.path_to_images, video))
-      num_frames = len(frames)
+      num_frames = len(frames) # frames of one video
       video_dict[video] = {}
       video_dict[video]['frames'] = os.path.join( self.path_to_images, video, '%06d.jpg')
       # pdb.set_trace()

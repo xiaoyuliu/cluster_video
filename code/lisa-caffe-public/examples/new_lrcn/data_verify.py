@@ -14,7 +14,7 @@ net = caffe.Net('/cs/vml2/xla193/cluster_video/code/lisa-caffe-public/examples/n
 
 net.forward()
 
-out = net.blobs['data'].data
+out = net.blobs['lstm1-drop'].data
 lab = net.blobs['label'].data
 pdb.set_trace()
 

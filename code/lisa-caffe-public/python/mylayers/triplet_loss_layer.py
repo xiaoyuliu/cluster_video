@@ -27,7 +27,7 @@ class TripletLossLayer(caffe.Layer):
         top[0].reshape(1)
 
     def forward(self, bottom, top):
-        # print time.ctime(), " starting forward in loss layer" 
+        print time.ctime(), " starting forward in loss layer" 
         self.margin = 1
         anchor = bottom[0].data
         positive = bottom[1].data
@@ -54,7 +54,7 @@ class TripletLossLayer(caffe.Layer):
         top[0].data[...] = loss
         # print("--- %s seconds for each forward in loss layer ---" % (time.time() - start_time))
     def backward(self, top, propagate_down, bottom):
-        # print time.ctime(), " starting backward in loss layer" 
+        print time.ctime(), " starting backward in loss layer" 
         # start_time = time.time()
         anchor = bottom[0].data
         positive = bottom[1].data
