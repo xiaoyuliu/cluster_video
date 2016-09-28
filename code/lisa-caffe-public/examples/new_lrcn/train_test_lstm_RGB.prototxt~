@@ -295,7 +295,7 @@ layer{
   reshape_param{
     shape{
       dim: 16 # number of frames chosen
-      dim: 40 # video batch size
+      dim: 10 # video batch size
       dim: 4096
     }
   }
@@ -309,7 +309,7 @@ layer{
   reshape_param{
     shape{
       dim: 16
-      dim: 40
+      dim: 10
       dim: 4096
     }
   }
@@ -323,7 +323,7 @@ layer{
   reshape_param{
     shape{
       dim: 16
-      dim: 40
+      dim: 10
     }
   }
   include: { phase: TRAIN }
@@ -336,7 +336,7 @@ layer{
   reshape_param{
     shape{
       dim: 16
-      dim: 40
+      dim: 10
     }
   }
   include: { phase: TEST stage: "test-on-test" }
@@ -349,7 +349,8 @@ layer{
   reshape_param{
     shape{
       dim: 16
-      dim: 40
+      dim: 10
+    }
   }
   include: { phase: TRAIN }
 }
@@ -361,7 +362,7 @@ layer{
   reshape_param{
     shape{
       dim: 16
-      dim: 40
+      dim: 10
     }
   }
   include: { phase: TEST stage: "test-on-test" }
@@ -407,6 +408,7 @@ layer {
     module: "mylayers"
     layer: "TripletLSTMLayer"
   }
+  include: { phase: TRAIN }
 }
 
 layer {
@@ -420,7 +422,7 @@ layer {
     module: "mylayers"
     layer: "TripletLossLayer"
   }
-  loss_weight: 1
+  include: { phase: TRAIN }
 }
 
 #layer {
