@@ -10,7 +10,6 @@ from sklearn import preprocessing
 import time
 import scipy.spatial.distance as ssd
 
-
 class TripletLossLayer(caffe.Layer):
     """
     Compute the hing loss of the dot product of the 2 input layers
@@ -27,7 +26,7 @@ class TripletLossLayer(caffe.Layer):
         top[0].reshape(1)
 
     def forward(self, bottom, top):
-        print time.ctime(), " starting forward in loss layer" 
+        # start_time = time.time() 
         self.margin = 1
         anchor = bottom[0].data
         positive = bottom[1].data
@@ -36,12 +35,8 @@ class TripletLossLayer(caffe.Layer):
         loss = float(0)
         self.no_residual_list = []
         for i in range(anchor.shape[0]):
-            # start_time = time.time()
-            # from IPython.core.debugger import Tracer
-            # Tracer()()
             ap = ssd.cdist( np.array([anchor[i]]), np.array([positive[i]]), 'sqeuclidean' )[0][0]
             an = ssd.cdist( np.array([anchor[i]]), np.array([negative[i]]), 'sqeuclidean' )[0][0]
-            
             dist = (self.margin + ap - an) # safety margin
             _loss = max(dist, 0.0) # hinge
             if i == 0:
@@ -52,9 +47,9 @@ class TripletLossLayer(caffe.Layer):
             loss += _loss
         loss = loss / ( 2*anchor.shape[0] )
         top[0].data[...] = loss
-        # print("--- %s seconds for each forward in loss layer ---" % (time.time() - start_time))
+        # print("--- %s seconds for forward in loss layer ---" % (time.time() - start_time))
     def backward(self, top, propagate_down, bottom):
-        print time.ctime(), " starting backward in loss layer" 
+        # print time.ctime(), " bbbbbbbbbbbbbbbbbbbbbbackward" 
         # start_time = time.time()
         anchor = bottom[0].data
         positive = bottom[1].data

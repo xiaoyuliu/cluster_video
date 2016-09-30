@@ -22,7 +22,7 @@ layer {
     module: "sequence_input_layer"
     layer: "videoReadTest_RGB"
   }
-  include: { phase: TEST stage: "test-on-test" }
+  include: { phase: TEST }
 }
 layer {
   name: "conv1"
@@ -295,7 +295,7 @@ layer{
   reshape_param{
     shape{
       dim: 16 # number of frames chosen
-      dim: 10 # video batch size
+      dim: 15 # video batch size
       dim: 4096
     }
   }
@@ -313,7 +313,7 @@ layer{
       dim: 4096
     }
   }
-  include: { phase: TEST stage: "test-on-test" }
+  include: { phase: TEST }
 }
 layer{
   name: "reshape-label"
@@ -323,7 +323,7 @@ layer{
   reshape_param{
     shape{
       dim: 16
-      dim: 10
+      dim: 15
     }
   }
   include: { phase: TRAIN }
@@ -339,7 +339,7 @@ layer{
       dim: 10
     }
   }
-  include: { phase: TEST stage: "test-on-test" }
+  include: { phase: TEST }
 }
 layer{
   name: "reshape-cm"
@@ -349,7 +349,7 @@ layer{
   reshape_param{
     shape{
       dim: 16
-      dim: 10
+      dim: 15
     }
   }
   include: { phase: TRAIN }
@@ -365,7 +365,7 @@ layer{
       dim: 10
     }
   }
-  include: { phase: TEST stage: "test-on-test" }
+  include: { phase: TEST }
 }
 layer {
   name: "lstm1"
@@ -408,7 +408,7 @@ layer {
     module: "mylayers"
     layer: "TripletLSTMLayer"
   }
-  include: { phase: TRAIN }
+  #include: { phase: TRAIN }
 }
 
 layer {
@@ -422,7 +422,7 @@ layer {
     module: "mylayers"
     layer: "TripletLossLayer"
   }
-  include: { phase: TRAIN }
+  #include: { phase: TRAIN }
 }
 
 #layer {

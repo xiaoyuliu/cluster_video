@@ -1,20 +1,20 @@
 clear
 %function meas = purity( labels, labelgt, chosedPoints, flag)
-load /cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101_out_feats20_ft1.mat
-load /cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-gtlabel-20.mat
-load ('/cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-label-20-0ft.mat', 'kmcenters')
+load /cs/vml2/xla193/cluster_video/output/UCF-101/outputlstm-UCF-101-20-1ft.mat % data
+load /cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-gtlabel-20.mat % label
+% load ('/cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-label-20-0ft.mat', 'kmcenters')
 addpath(genpath('/cs/vml2/xla193/dmmc/code/visualization'))
 % order = randperm(size(data,1));
 % sdata = data(order,:);
 % slabel= label(order,:);
-% [idx, kmcenters, sumd, D] = kmeans(data, 20, ...
-%       'Replicates',200,'Display','final','MaxIter',300);
-
-centers = kmcenters;
-clear kmcenters
-
 [idx, kmcenters, sumd, D] = kmeans(data, 20, ...
-       'Display','final','MaxIter',300,'Start',centers);
+      'Replicates',200,'Display','final','MaxIter',300);
+
+% centers = kmcenters;
+% clear kmcenters
+% 
+% [idx, kmcenters, sumd, D] = kmeans(data, 20, ...
+%        'Display','final','MaxIter',300,'Start',centers);
 flag = 0;
 
 labels = idx;
@@ -29,7 +29,7 @@ perplexity = 30;
 
 mappedX = tsne(data, [], no_dims, initial_dims, perplexity);
 figure
-gscatter(mappedX(:,1), mappedX(:,2), label);
+gscatter(mappedX(:,1), mappedX(:,2), labels);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 if flag
@@ -111,4 +111,4 @@ meas.ri = ri;
 meas.pa = pa;
 meas.nmi= nmi;
 
-%save /cs/vml2/xla193/cluster_video/output/UCF-101/20_0ft_output.mat labels labelgt kmcenters mappedX meas
+save /cs/vml2/xla193/cluster_video/output/UCF-101/outputlabellstm-UCF-101-20-1ft.mat labels labelgt kmcenters mappedX meas

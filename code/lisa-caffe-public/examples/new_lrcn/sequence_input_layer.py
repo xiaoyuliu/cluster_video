@@ -26,7 +26,7 @@ RGB_frames = '/cs/vml2/xla193/cluster_video/datasets/UCF-101/'
 test_frames = 16 
 train_frames = 16
 test_buffer = 10
-train_buffer = 10
+train_buffer = 15
 
 def processImageCrop(im_info, transformer, flow):
   im_path = im_info[0]
@@ -138,7 +138,7 @@ class videoRead(caffe.Layer):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lstm.txt' 
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with1ftlabel-random.txt' 
 
   def setup(self, bottom, top):
     random.seed(10)
@@ -299,8 +299,7 @@ class videoReadTrain_RGB(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lstm_random.txt' 
-
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with1ftlabel-random.txt' 
 class videoReadTest_RGB(videoRead):
 
   def initialize(self):
@@ -314,4 +313,4 @@ class videoReadTest_RGB(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lstm.txt' 
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with1ftlabel-random.txt' 

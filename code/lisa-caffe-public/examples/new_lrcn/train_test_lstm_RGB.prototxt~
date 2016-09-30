@@ -22,7 +22,7 @@ layer {
     module: "sequence_input_layer"
     layer: "videoReadTest_RGB"
   }
-  include: { phase: TEST stage: "test-on-test" }
+  include: { phase: TEST }
 }
 layer {
   name: "conv1"
@@ -313,7 +313,7 @@ layer{
       dim: 4096
     }
   }
-  include: { phase: TEST stage: "test-on-test" }
+  include: { phase: TEST }
 }
 layer{
   name: "reshape-label"

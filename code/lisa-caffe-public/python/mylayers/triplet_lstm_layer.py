@@ -10,7 +10,8 @@ class TripletLSTMLayer(caffe.Layer):
 		if len(bottom)!=2:
 			raise Exception("Need two inputs to compute triplets")
 	def reshape(self, bottom, top):
-		print time.ctime(), " starting reshape in tripletLSTM layer"
+		# print time.ctime(), " starting tripletLSTM layer"
+		# start_time = time.time()
 		frame_feat = bottom[0].data # 16x24x256
 		frame_label= bottom[1].data # 16x24
 
@@ -42,14 +43,15 @@ class TripletLSTMLayer(caffe.Layer):
 		for i in range(nclusters):
 			if counts[i] > 1:
 				n_trip += counts[i] * (counts[i]-1) * n_neg / 2
+		# print "n_trip:", n_trip
 		if n_trip==0:
 			return
 		top[0].reshape(n_trip, feats.shape[1])
 		top[1].reshape(n_trip, feats.shape[1])
 		top[2].reshape(n_trip, feats.shape[1])
-
+		# print("--- %s seconds for reshape in LSTM layer ---" % (time.time() - start_time))
 	def forward(self, bottom, top):
-		print time.ctime(), " starting forward in tripletLSTM layer"
+		# print time.ctime(), " starting forward in tripletLSTM layer"
 		# start_time = time.time()
 		# from IPython.core.debugger import Tracer
 		# Tracer()()
@@ -88,8 +90,8 @@ class TripletLSTMLayer(caffe.Layer):
 				for m in range(counts[i]):
 					index_list = np.where( labels == unilabels[i] )[0]
 					for n in range(m+1, counts[i]):
-						from IPython.core.debugger import Tracer
-						Tracer()()
+						# from IPython.core.debugger import Tracer
+						# Tracer()()
 						if m!=n:
 							is_choosed = np.zeros([num_s,1])
 							while 1:
@@ -108,8 +110,8 @@ class TripletLSTMLayer(caffe.Layer):
 		A_ind_list = []
 		B_ind_list = []
 		C_ind_list = []
-		from IPython.core.debugger import Tracer
-		Tracer()()
+		# from IPython.core.debugger import Tracer
+		# Tracer()()
 		for i in range(A_ind.shape[0]):
 			A_ind_list.append(A_ind[i][0])
 			B_ind_list.append(B_ind[i][0])
@@ -123,9 +125,9 @@ class TripletLSTMLayer(caffe.Layer):
 		top[0].data[...] = A
 		top[1].data[...] = B
 		top[2].data[...] = C
-		print time.ctime(), " ending forward in tripletLSTM layer"
+		# print time.ctime(), " ending forward in tripletLSTM layer"
 
-		# print("--- %s seconds for forward ---" % (time.time() - start_time))
+		# print("--- %s seconds for forward in LSTM layer ---" % (time.time() - start_time))
 		
 	def backward(self, top, propagate_down, bottom):
 		pass

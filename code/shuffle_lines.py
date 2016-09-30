@@ -7,9 +7,9 @@ from sklearn.preprocessing import normalize
 from random import shuffle
 
 optparser = optparse.OptionParser()
-optparser.add_option("--d", "--database", dest="database", default=None, help="Input database name")
-optparser.add_option("--i", "--input", dest="input", default=None, help="Input file name")
-optparser.add_option("--o", "--output", dest="output", default=None, help="Output file name")
+optparser.add_option("-d", "--database", dest="database", default="UCF-101", help="Input database name")
+optparser.add_option("-i", "--input", dest="input", default=None, help="Input file name")
+optparser.add_option("-o", "--output", dest="output", default=None, help="Output file name")
 
 (opts, _) = optparser.parse_args()
 

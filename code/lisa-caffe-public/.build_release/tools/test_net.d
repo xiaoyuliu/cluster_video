@@ -828,46 +828,47 @@
  /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/date_time/posix_time/conversion.hpp \
  /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/date_time/posix_time/time_parsers.hpp \
  include/caffe/util/io.hpp \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/hdf5.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5public.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5pubconf.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5version.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5api_adpt.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Apublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Ipublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Opublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Lpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Tpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5ACpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Cpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Dpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Epublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Epubgen.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Fpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Gpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5MMpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Ppublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Zpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Rpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Spublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDcore.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDfamily.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDlog.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDmpi.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDmpio.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDmpiposix.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDmulti.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDsec2.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDstdio.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDdirect.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/hdf5_hl.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5DOpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5DSpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5LTpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5IMpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5TBpublic.h \
- /rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5PTpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/hdf5.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5public.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5pubconf.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5version.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5api_adpt.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Apublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Ipublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Opublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Lpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Tpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5ACpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Cpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Dpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Epublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Epubgen.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Fpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Gpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5MMpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Ppublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Zpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5PLpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Rpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Spublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDcore.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDfamily.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDlog.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDmpi.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDmpio.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDmulti.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDsec2.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDstdio.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDdirect.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/hdf5_hl.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/hdf5.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5DOpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5DSpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5LTpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5IMpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5TBpublic.h \
+ /cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5PTpublic.h \
  include/caffe/vision_layers.hpp include/caffe/common_layers.hpp \
  include/caffe/data_layers.hpp \
  /cs/vml2/avahdat/software/Boost-1.58/boost_1_58_0/boost/scoped_ptr.hpp \
@@ -2555,85 +2556,87 @@ include/caffe/util/benchmark.hpp:
 
 include/caffe/util/io.hpp:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/hdf5.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/hdf5.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5public.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5public.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5pubconf.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5pubconf.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5version.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5version.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5api_adpt.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5api_adpt.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Apublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Apublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Ipublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Ipublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Opublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Opublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Lpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Lpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Tpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Tpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5ACpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5ACpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Cpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Cpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Dpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Dpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Epublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Epublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Epubgen.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Epubgen.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Fpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Fpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Gpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Gpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5MMpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5MMpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Ppublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Ppublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Zpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Zpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Rpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5PLpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5Spublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Rpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDcore.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5Spublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDfamily.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDcore.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDlog.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDfamily.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDmpi.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDlog.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDmpio.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDmpi.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDmpiposix.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDmpio.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDmulti.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDmulti.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDsec2.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDsec2.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDstdio.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDstdio.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5FDdirect.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5FDdirect.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/hdf5_hl.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/hdf5_hl.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5DOpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/hdf5.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5DSpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5DOpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5LTpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5DSpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5IMpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5LTpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5TBpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5IMpublic.h:
 
-/rcg/software/Linux/RHEL/6/x86_64/LIB/HDF5/1.8.12/include/H5PTpublic.h:
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5TBpublic.h:
+
+/cs/vml2/xla193/Anaconda/pkgs/hdf5-1.8.16-0/include/H5PTpublic.h:
 
 include/caffe/vision_layers.hpp:
 
