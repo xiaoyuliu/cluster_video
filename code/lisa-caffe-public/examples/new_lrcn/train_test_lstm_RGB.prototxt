@@ -408,7 +408,7 @@ layer {
     module: "mylayers"
     layer: "TripletLSTMLayer"
   }
-  #include: { phase: TRAIN }
+  include: { phase: TRAIN }
 }
 
 layer {
@@ -422,7 +422,7 @@ layer {
     module: "mylayers"
     layer: "TripletLossLayer"
   }
-  #include: { phase: TRAIN }
+  include: { phase: TRAIN }
 }
 
 #layer {

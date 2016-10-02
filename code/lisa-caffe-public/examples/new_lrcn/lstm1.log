@@ -5198,3 +5198,30 @@ I0930 11:18:15.264559  1561 solver.cpp:489] Iteration 1640, lr = 1e-06
 I0930 11:18:52.746798  1561 solver.cpp:214] Iteration 1660, loss = 0
 I0930 11:18:52.746842  1561 solver.cpp:229]     Train net output #0: loss = 0.492254
 I0930 11:18:52.746856  1561 solver.cpp:489] Iteration 1660, lr = 1e-06
+I0930 11:19:29.243412  1561 solver.cpp:214] Iteration 1680, loss = 0
+I0930 11:19:29.243454  1561 solver.cpp:229]     Train net output #0: loss = 0.469942
+I0930 11:19:29.243468  1561 solver.cpp:489] Iteration 1680, lr = 1e-06
+I0930 11:20:05.339439  1561 solver.cpp:214] Iteration 1700, loss = 0
+I0930 11:20:05.339484  1561 solver.cpp:229]     Train net output #0: loss = 0.478281
+I0930 11:20:05.339499  1561 solver.cpp:489] Iteration 1700, lr = 1e-06
+I0930 11:20:42.289950  1561 solver.cpp:214] Iteration 1720, loss = 0
+I0930 11:20:42.290002  1561 solver.cpp:229]     Train net output #0: loss = 0.496422
+I0930 11:20:42.290020  1561 solver.cpp:489] Iteration 1720, lr = 1e-06
+I0930 11:21:18.699326  1561 solver.cpp:214] Iteration 1740, loss = 0
+I0930 11:21:18.699368  1561 solver.cpp:229]     Train net output #0: loss = 0.511384
+I0930 11:21:18.699383  1561 solver.cpp:489] Iteration 1740, lr = 1e-06
+I0930 11:21:55.365458  1561 solver.cpp:214] Iteration 1760, loss = 0
+I0930 11:21:55.365501  1561 solver.cpp:229]     Train net output #0: loss = 0.464413
+I0930 11:21:55.365515  1561 solver.cpp:489] Iteration 1760, lr = 1e-06
+I0930 11:22:32.520660  1561 solver.cpp:214] Iteration 1780, loss = 0
+I0930 11:22:32.520704  1561 solver.cpp:229]     Train net output #0: loss = 0.519724
+I0930 11:22:32.520719  1561 solver.cpp:489] Iteration 1780, lr = 1e-06
+I0930 11:23:08.136673  1561 solver.cpp:359] Snapshotting to /cs/vml2/xla193/cluster_video/output/UCF-101/snapshots_lstm_RGB/_iter_1800.caffemodel
+I0930 11:23:16.529753  1561 solver.cpp:367] Snapshotting solver state to /cs/vml2/xla193/cluster_video/output/UCF-101/snapshots_lstm_RGB/_iter_1800.solverstate
+I0930 11:23:21.809118  1561 solver.cpp:273] Iteration 1800, loss = 0
+I0930 11:23:21.809156  1561 solver.cpp:291] Iteration 1800, Testing net (#0)
+I0930 11:25:29.928088  1561 solver.cpp:340]     Test net output #0: loss = 0.499394
+I0930 11:25:29.928138  1561 solver.cpp:278] Optimization Done.
+I0930 11:25:29.928144  1561 caffe.cpp:134] Optimization Done.
+Outputs: ['data', 'label', 'clip_markers']
+Done.

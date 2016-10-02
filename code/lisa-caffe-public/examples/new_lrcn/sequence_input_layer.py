@@ -138,7 +138,7 @@ class videoRead(caffe.Layer):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with1ftlabel-random.txt' 
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with2ftlabel-random.txt' 
 
   def setup(self, bottom, top):
     random.seed(10)
@@ -299,7 +299,7 @@ class videoReadTrain_RGB(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with1ftlabel-random.txt' 
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with2ftlabel-random.txt' 
 class videoReadTest_RGB(videoRead):
 
   def initialize(self):
@@ -313,4 +313,4 @@ class videoReadTest_RGB(videoRead):
     self.height = 227
     self.width = 227
     self.path_to_images = RGB_frames 
-    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with1ftlabel-random.txt' 
+    self.video_list = '/cs/vml2/xla193/cluster_video/output/UCF-101/list_video-20with2ftlabel-random.txt' 

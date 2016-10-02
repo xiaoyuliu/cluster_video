@@ -16,7 +16,7 @@ layer {
     flow: false
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lrcn.txt"
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-20with0ftlabel.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
@@ -42,12 +42,12 @@ layer {
     flow: false
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/input-UCF-101-20-0ft-fmlist.txt"
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-20with0ftlabel.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
     new_width: 320
-    shuffle: false
+    shuffle: true
   }
 }
 layer {
@@ -399,9 +399,9 @@ layer {
     module: "mylayers"
     layer: "TripletLayer"
   }
-  include {
-    phase: TRAIN
-  }
+#  include {
+#    phase: TRAIN
+#  }
 }
 
 layer {
@@ -416,9 +416,9 @@ layer {
     layer: "TripletLossLayer"
   }
   loss_weight: 1
-  include {
-    phase: TRAIN
-  }
+#  include {
+#    phase: TRAIN
+#  }
 }
 
 #layer {

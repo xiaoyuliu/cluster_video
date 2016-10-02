@@ -33,7 +33,7 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
     
   caffe.set_device(device_id)
   net = caffe.Net(os.path.join( net_root, 'train_test_singleFrame_RGB.prototxt' ),
-                  os.path.join( model_root, 'caffe_imagenet_hyb2_wr_rc_solver_sqrt_iter_310000' ),
+                  os.path.join( model_root, 'snapshots_singleFrame_RGB/_iter_92280.caffemodel' ),
                   caffe.TEST)
   frame_id = 0
   video_feats = np.zeros((N, F))

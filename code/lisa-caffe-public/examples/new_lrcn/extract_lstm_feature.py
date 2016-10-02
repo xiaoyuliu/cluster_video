@@ -6,7 +6,7 @@ from caffe.proto import caffe_pb2
 import caffe
 
 optparser = optparse.OptionParser()
-optparser.add_option("-o", "--output", dest="output", default="outputlstm-UCF-101-20-1ft.mat", help="Output data name")
+optparser.add_option("-o", "--output", dest="output", default="outputlstm-UCF-101-20-3ft.mat", help="Output data name")
 optparser.add_option("-m", "--mode", dest="mode", type=int, default=int(0), help="Mode for extracting feature. [ 0-GPU, 1- CPU]")
 optparser.add_option("-s", "--batch_size", dest="batch_size", type=int, default=int(10), help="Batch size.")
 optparser.add_option("-c", "--device_id", dest="device_id", type=int, default=int(2), help="Device id.")
@@ -59,7 +59,7 @@ def convert_feature(out_filename, N, F, device_id, batch_size, mode=0):
       sys.stdout.flush()
 
   sys.stdout.write('Done.\n')
-  pdb.set_trace()
+  # pdb.set_trace()
   out_mat = dict()
   # out_mat['mcf_label']  = data2
   out_mat['data']   = data
