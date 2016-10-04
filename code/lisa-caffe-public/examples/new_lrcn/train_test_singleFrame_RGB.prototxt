@@ -387,29 +387,31 @@ layer {
 #}
 
 
-layer {
-  name: "triplets"
-  type: "Python"
-  bottom: "fc7"
-  bottom: "label"
-  top: "anchor"
-  top: "positive"
-  top: "negative"
-  python_param {
-    module: "mylayers"
-    layer: "TripletLayer"
-  }
+#layer {
+#  name: "triplets"
+#  type: "Python"
+#  bottom: "fc7"
+#  bottom: "label"
+#  top: "anchor"
+#  top: "positive"
+#  top: "negative"
+#  python_param {
+#    module: "mylayers"
+#    layer: "TripletLayer"
+#  }
 #  include {
 #    phase: TRAIN
 #  }
-}
+#}
 
 layer {
   name: "loss"
   type: "Python"
-  bottom: "anchor"
-  bottom: "positive"
-  bottom: "negative"
+  bottom: "fc7"
+  bottom: "label"
+#  bottom: "anchor"
+#  bottom: "positive"
+#  bottom: "negative"
   top: "loss"
   python_param {
     module: "mylayers"

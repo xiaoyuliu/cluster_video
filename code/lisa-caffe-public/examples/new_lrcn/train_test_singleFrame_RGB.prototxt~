@@ -16,7 +16,7 @@ layer {
     flow: false
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lrcn.txt"
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-20with0ftlabel.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
@@ -42,7 +42,7 @@ layer {
     flow: false
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/input_UCF-101_20_0ft_lrcn.txt"
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-20with0ftlabel.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
@@ -387,38 +387,37 @@ layer {
 #}
 
 
-layer {
-  name: "triplets"
-  type: "Python"
-  bottom: "fc7"
-  bottom: "label"
-  top: "anchor"
-  top: "positive"
-  top: "negative"
-  python_param {
-    module: "mylayers"
-    layer: "TripletLayer"
-  }
-  include {
-    phase: TRAIN
-  }
-}
+#layer {
+#  name: "triplets"
+#  type: "Python"
+#  bottom: "fc7"
+#  bottom: "label"
+#  top: "anchor"
+#  top: "positive"
+#  top: "negative"
+#  python_param {
+#    module: "mylayers"
+#    layer: "TripletLayer"
+#  }
+#  include {
+#    phase: TRAIN
+#  }
+#}
 
 layer {
   name: "loss"
   type: "Python"
-  bottom: "anchor"
-  bottom: "positive"
-  bottom: "negative"
+  bottom: "fc7"
+  bottom: "label"
   top: "loss"
   python_param {
     module: "mylayers"
     layer: "TripletLossLayer"
   }
   loss_weight: 1
-  include {
-    phase: TRAIN
-  }
+#  include {
+#    phase: TRAIN
+#  }
 }
 
 #layer {

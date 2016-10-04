@@ -1,7 +1,7 @@
 import caffe
 import numpy as np
 import random
-import time
+import time,pdb
 
 
 class TripletLayer(caffe.Layer):
@@ -92,11 +92,13 @@ class TripletLayer(caffe.Layer):
 									C_ind[id_triplet] = int(id_s)
 									is_choosed[id_s]  = 1
 									id_triplet += 1
+									print "number of triplets:", id_triplet
 								if (id_triplet+1) % n_neg == 1:
 									break
 		A_ind_list = []
 		B_ind_list = []
 		C_ind_list = []
+		pdb.set_trace()
 		for i in range(A_ind.shape[0]):
 			A_ind_list.append(A_ind[i][0])
 			B_ind_list.append(B_ind[i][0])
