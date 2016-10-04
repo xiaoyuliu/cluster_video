@@ -1,6 +1,7 @@
 #ifndef CAFFE_OPTIMIZATION_SOLVER_HPP_
 #define CAFFE_OPTIMIZATION_SOLVER_HPP_
 
+#include <boost/function.hpp>
 #include <string>
 #include <vector>
 
@@ -14,6 +15,20 @@ namespace caffe {
  * Requires implementation of ComputeUpdateValue to compute a parameter update
  * given the current state of the Net parameters.
  */
+// Allow the snapshot to be saved when stopping execution with a SIGINT(Ctrl-C)
+
+namespace SolverAction {
+  enum Enum {
+    NONE = 0, // Take no special action.
+    STOP = 1, // Stop training. snapshot_after_train controls whether a snapshot
+              // is created.
+    SNAPSHOT = 2 // Take a snapshot, and keep training.
+  };
+}
+
+typedef boost::function<SolverAction::Enum()> ActionCallback;
+
+
 template <typename Dtype>
 class Solver {
  public:
@@ -22,6 +37,11 @@ class Solver {
   void Init(const SolverParameter& param);
   void InitTrainNet();
   void InitTestNets();
+  //  Call snapshot function to see what to do
+  void SetActionFunction(ActionCallback func);
+  SolverAction::Enum GetRequestedAction();
+
+
   // The main entry of the solver function. In default, iter will be zero. Pass
   // in a non-zero iter number to resume training for a pre-trained net.
   virtual void Solve(const char* resume_file = NULL);
@@ -59,6 +79,11 @@ class Solver {
   shared_ptr<Net<Dtype> > net_;
   vector<shared_ptr<Net<Dtype> > > test_nets_;
 
+  // A function that can be set by a client of the Solver to provide indication
+  // of saving a snapshot and/or exiting early
+  ActionCallback action_request_function_;
+  // True iff a request to stop early was received.
+  bool requested_early_exit_;
   DISABLE_COPY_AND_ASSIGN(Solver);
 };
 

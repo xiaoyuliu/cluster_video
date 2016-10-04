@@ -14,14 +14,27 @@
 namespace caffe {
 
 template <typename Dtype>
+void Solver<Dtype>::SetActionFunction(ActionCallback func) {
+  action_request_function_ = func;
+}
+
+template <typename Dtype>
+SolverAction::Enum Solver<Dtype>::GetRequestedAction() {
+  if (action_request_function_) {
+    return action_request_function_();
+  }
+  return SolverAction::NONE;
+}
+
+template <typename Dtype>
 Solver<Dtype>::Solver(const SolverParameter& param)
-    : net_() {
+    : net_(), requested_early_exit_(false) {
   Init(param);
 }
 
 template <typename Dtype>
 Solver<Dtype>::Solver(const string& param_file)
-    : net_() {
+    : net_(), requested_early_exit_(false) {
   SolverParameter param;
   ReadProtoFromTextFileOrDie(param_file, &param);
   Init(param);
@@ -190,6 +203,10 @@ void Solver<Dtype>::Step(int iters) {
     if (param_.test_interval() && iter_ % param_.test_interval() == 0
         && (iter_ > 0 || param_.test_initialization())) {
       TestAll();
+      if (requested_early_exit_) {
+        // Break out of the for loop because stop was requested while testing.
+        break;
+      }
     }
 
     const bool display = param_.display() && iter_ % param_.display() == 0;
@@ -235,9 +252,17 @@ void Solver<Dtype>::Step(int iters) {
     ComputeUpdateValue();
     net_->Update();
 
+    SolverAction::Enum request = GetRequestedAction();
+
     // Save a snapshot if needed.
-    if (param_.snapshot() && (iter_ + 1) % param_.snapshot() == 0) {
+    if (param_.snapshot() && (iter_ + 1) % param_.snapshot() == 0 || 
+        (request == SolverAction::SNAPSHOT)) {
       Snapshot();
+    }
+
+    if (request == SolverAction::STOP) {
+      requested_early_exit_ = true;
+      break;
     }
   }
 }
@@ -246,6 +271,9 @@ template <typename Dtype>
 void Solver<Dtype>::Solve(const char* resume_file) {
   LOG(INFO) << "Solving " << net_->name();
   LOG(INFO) << "Learning Rate Policy: " << param_.lr_policy();
+
+  // Initialize to false every time we start solving.
+  requested_early_exit_ = false;
 
   if (resume_file) {
     LOG(INFO) << "Restoring previous solver status from " << resume_file;
@@ -261,6 +289,12 @@ void Solver<Dtype>::Solve(const char* resume_file) {
       && (!param_.snapshot() || iter_ % param_.snapshot() != 0)) {
     Snapshot();
   }
+
+  if (requested_early_exit_) {
+    LOG(INFO) << "Optimization stopped early.";
+    return;
+  }
+
   // After the optimization is done, run an additional train and test pass to
   // display the train and test loss/outputs if appropriate (based on the
   // display and test_interval settings, respectively).  Unlike in the rest of
@@ -281,7 +315,8 @@ void Solver<Dtype>::Solve(const char* resume_file) {
 
 template <typename Dtype>
 void Solver<Dtype>::TestAll() {
-  for (int test_net_id = 0; test_net_id < test_nets_.size(); ++test_net_id) {
+  for (int test_net_id = 0; test_net_id < test_nets_.size() && !requested_early_exit_;
+       ++test_net_id) {
     Test(test_net_id);
   }
 }
@@ -298,6 +333,21 @@ void Solver<Dtype>::Test(const int test_net_id) {
   const shared_ptr<Net<Dtype> >& test_net = test_nets_[test_net_id];
   Dtype loss = 0;
   for (int i = 0; i < param_.test_iter(test_net_id); ++i) {
+
+    SolverAction::Enum request = GetRequestedAction();
+    while (request != SolverAction::NONE) {
+      if (request == SolverAction::SNAPSHOT) {
+        Snapshot();
+      } else if (request == SolverAction::STOP) {
+        requested_early_exit_ = true;
+      }
+      request = GetRequestedAction();
+    }
+    if (requested_early_exit_) {
+      break;
+    }
+
+
     Dtype iter_loss;
     const vector<Blob<Dtype>*>& result =
         test_net->Forward(bottom_vec, &iter_loss);
@@ -322,6 +372,12 @@ void Solver<Dtype>::Test(const int test_net_id) {
       }
     }
   }
+
+  if (requested_early_exit_) {
+    LOG(INFO) << "Test interrupted.";
+    return;
+  }
+
   if (param_.test_compute_loss()) {
     loss /= param_.test_iter(test_net_id);
     LOG(INFO) << "Test loss: " << loss;
