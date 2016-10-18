@@ -3,10 +3,10 @@ import scipy.io as sio
 import pdb
 
 optparser = optparse.OptionParser()
-optparser.add_option("--li", "--label", dest="label", default='outputlabel-UCF-101-20-0ft.mat', help="Input label file name")
-optparser.add_option("--pi", "--path", dest="path", default='input-UCF-101-20-0ft-fmlist.txt', help="Input path file name")
+optparser.add_option("--li", "--label", dest="label", default='outputlabel-UCF-101-10-0ft.mat', help="Input label file name")
+optparser.add_option("--pi", "--path", dest="path", default='list_frm-10with0label.txt', help="Input path file name")
 optparser.add_option("--ci", "--count", dest="count", default='input-UCF-101-20-fmcount.txt', help="Input count file name")
-optparser.add_option("-o",  "--output",dest="output",default='list_frm-20with0ftlabel.txt', help="Input output file name")
+optparser.add_option("-o",  "--output",dest="output",default='list_frm-10with0ftlabel.txt', help="Input output file name")
 optparser.add_option("-d", "--database",dest="database",default='UCF-101', help="Input dataset name")
 
 (opts, _) = optparser.parse_args()
@@ -28,6 +28,7 @@ def combine_pl( labelin, pathin, countin, pathout, database):
 
 	with open(output_file, 'w') as outf:
 		label_dic = sio.loadmat( label_file )
+		# pdb.set_trace()
 		labels    = label_dic['labels']
 		video_id  = 0
 		frame_id  = 0
@@ -46,7 +47,7 @@ def combine_pl( labelin, pathin, countin, pathout, database):
 				print "writing: ", content
 				video_id += 1
 				frame_id = 0
-				if video_id== 2694:
+				if video_id == 1374:
 					print "Done"
 					break
 				num_fms  = int( counts[video_id] )

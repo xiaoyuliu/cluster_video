@@ -932,7 +932,8 @@
  /rcg/software/Linux/RHEL/6/x86_64/LIB/LEVELDB/20150213/include/leveldb/options.h \
  /rcg/software/Linux/RHEL/6/x86_64/LIB/LEVELDB/20150213/include/leveldb/write_batch.h \
  /cs/vml2/avahdat/software/lmdb/openldap-2.4.40/libraries/liblmdb/lmdb.h \
- include/caffe/loss_layers.hpp include/caffe/neuron_layers.hpp
+ include/caffe/loss_layers.hpp include/caffe/neuron_layers.hpp \
+ include/caffe/util/signal_handler.h
 
 /rcg/software/Linux/RHEL/6/x86_64/LIB/GLOG/0.3.3/include/glog/logging.h:
 
@@ -2821,3 +2822,5 @@ include/caffe/util/db.hpp:
 include/caffe/loss_layers.hpp:
 
 include/caffe/neuron_layers.hpp:
+
+include/caffe/util/signal_handler.h:

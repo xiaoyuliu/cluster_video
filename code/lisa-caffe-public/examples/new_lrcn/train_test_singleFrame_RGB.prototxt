@@ -16,7 +16,7 @@ layer {
     flow: false
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-20with0ftlabel.txt"
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-10withgtlabel.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
@@ -42,12 +42,12 @@ layer {
     flow: false
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-20with0ftlabel.txt"
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-10withgtlabel.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
     new_width: 320
-    shuffle: true
+    shuffle: false
   }
 }
 layer {
@@ -353,6 +353,23 @@ layer {
     dropout_ratio: 0.5
   }
 }
+
+layer {
+  name: "loss"
+  type: "Python"
+  bottom: "fc7"
+  bottom: "label"
+  top: "loss"
+  python_param {
+    module: "mylayers"
+    layer: "TripletLossLayer"
+  }
+  loss_weight: 1
+  include {
+    phase: TRAIN
+  }
+}
+
 #layer {
 #  name: "fc8-ucf"
 #  type: "InnerProduct"
@@ -367,7 +384,7 @@ layer {
 #    decay_mult: 0
 #  }
 #  inner_product_param {
-#    num_output: 20
+#   num_output: 101
 #    weight_filler {
 #      type: "gaussian"
 #      std: 0.01
@@ -385,67 +402,10 @@ layer {
 #  bottom: "label"
 #  top: "loss"
 #}
-
-
-#layer {
-#  name: "triplets"
-#  type: "Python"
-#  bottom: "fc7"
-#  bottom: "label"
-#  top: "anchor"
-#  top: "positive"
-#  top: "negative"
-#  python_param {
-#    module: "mylayers"
-#    layer: "TripletLayer"
-#  }
-#  include {
-#    phase: TRAIN
-#  }
-#}
-
-layer {
-  name: "loss"
-  type: "Python"
-  bottom: "fc7"
-  bottom: "label"
-#  bottom: "anchor"
-#  bottom: "positive"
-#  bottom: "negative"
-  top: "loss"
-  python_param {
-    module: "mylayers"
-    layer: "TripletLossLayer"
-  }
-  loss_weight: 1
-#  include {
-#    phase: TRAIN
-#  }
-}
-
 #layer {
 #  name: "accuracy"
 #  type: "Accuracy"
 #  bottom: "fc8-ucf"
 #  bottom: "label"
 #  top: "accuracy"
-#}
-
-#layer {
-#  name: "prob"
-#  type: "Softmax"
-#  bottom: "fc8-ucf"
-#  top: "prob"
-#}
-
-#layer {
-#  name: "purity"
-#  type: "Python"
-#  bottom: "prob"
-#  bottom: "label"
-#  top: "purity"
-#  python_param {
-#    module: "mylayers"
-#    layer: "PurityLayer"
-#  }
 #}

@@ -11,7 +11,7 @@ optparser.add_option("-o", "--output", dest="output", default="all-4_pred.mat", 
 optparser.add_option("-m", "--mode", dest="mode", type=int, default=int(0), help="Mode for extracting feature. [ 0-GPU, 1- CPU]")
 optparser.add_option("-s", "--batch_size", dest="batch_size", type=int, default=int(50), help="Batch size.")
 optparser.add_option("-c", "--device_id", dest="device_id", type=int, default=int(0), help="Device id.")
-optparser.add_option("-n", "--num", dest="num", type=int, default=int(461393), help="Number of instances")
+optparser.add_option("-n", "--num", dest="num", type=int, default=int(197941), help="Number of instances")
 optparser.add_option("-f", "--feat", dest="feat", type=int, default=int(4096), help="Dimensionality of feature")
 (opts, _)= optparser.parse_args()
 
@@ -23,7 +23,8 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
   assert os.path.isdir(model_root),    "Model path not exists."
   assert os.path.isdir(net_root),      "Net path not exists."
   with open(os.path.join(model_root, incount_file), 'r') as countf:
-    counts = countf.readlines()
+    # pdb.set_trace()
+    counts = countf.readlines()[:1374]
 
   data  = np.zeros((len(counts), F),  dtype=np.float32  )
 
@@ -33,7 +34,7 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
     
   caffe.set_device(device_id)
   net = caffe.Net(os.path.join( net_root, 'train_test_singleFrame_RGB.prototxt' ),
-                  os.path.join( model_root, 'snapshots_singleFrame_RGB/_iter_92280.caffemodel' ),
+                  os.path.join( model_root, 'snapshots_singleFrame_RGB/_iter_4000.caffemodel' ),
                   caffe.TEST)
   frame_id = 0
   video_feats = np.zeros((N, F))
@@ -42,6 +43,7 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
   for batch_num in range( int(np.ceil( float(N)/batch_size )) ):
     net.forward()
     frame_feat = net.blobs['fc7'].data # 50x4096
+    # pdb.set_trace()
     if (batch_num * batch_size) % 1000 == 0:
       # output a progress indicator every 1000 samples
       sys.stderr.write( 'processed {0} frames.'.format(batch_num * batch_size) )

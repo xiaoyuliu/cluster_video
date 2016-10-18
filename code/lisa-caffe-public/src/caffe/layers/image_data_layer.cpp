@@ -46,7 +46,6 @@ void ImageDataLayer<Dtype>::DataLayerSetUp(const vector<Blob<Dtype>*>& bottom,
     lines_.push_back(std::make_pair(filename, label));
     // LOG(INFO) << "filename: " << filename << " label: " << label << "\n";
   }
-
   if (this->layer_param_.image_data_param().shuffle()) {
     // randomly shuffle data
     LOG(INFO) << "Shuffling data";
@@ -141,6 +140,7 @@ void ImageDataLayer<Dtype>::InternalThreadEntry() {
     timer.Start();
     CHECK_GT(lines_size, lines_id_);
     // cv::Mat cv_img = ReadImageToCVMat(root_folder + lines_[lines_id_].first,
+    // LOG(INFO) << "loading image: " << lines_[lines_id_].first;
     cv::Mat cv_img = ReadImageToCVMat(lines_[lines_id_].first,
         new_height, new_width, is_color, min_height, min_width);
     CHECK(cv_img.data) << "Could not load " << lines_[lines_id_].first;
@@ -152,6 +152,7 @@ void ImageDataLayer<Dtype>::InternalThreadEntry() {
     this->data_transformer_->Transform(cv_img, &(this->transformed_data_));
     trans_time += timer.MicroSeconds();
 
+    // LOG(INFO) << " label: " << lines_[lines_id_].second << "\n";
     prefetch_label[item_id] = lines_[lines_id_].second;
     // go to the next iter
     lines_id_++;

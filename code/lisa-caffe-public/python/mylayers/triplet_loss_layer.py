@@ -58,7 +58,6 @@ class TripletLossLayer(caffe.Layer):
                                     self.C_ind.append(int(id_s))
                                     is_choosed[id_s]  = 1
                                     id_trip += 1
-                                    # print "number of triplets:", id_trip
                                 if (id_trip+1) % n_neg == 1:
                                     break
 
@@ -67,7 +66,7 @@ class TripletLossLayer(caffe.Layer):
         self.positive = self.feats[self.B_ind,:]
         self.negative = self.feats[self.C_ind,:]
 
-        margin = 1
+        margin = 100
         loss   = float(0)
         self.no_residual_list = []
         for i in range(n_trip):
@@ -114,10 +113,4 @@ class TripletLossLayer(caffe.Layer):
         bottom[0].diff[:][...] = diffs.sum(axis=1)
     	# print("--- %s seconds for calculating mean ---" % (time.time() - start_time))
         bottom[0].diff[...] /= bottom[0].num
-        # out = dict()
-        # out['data'] = diffs
-        # sio.savemat('/cs/vml2/xla193/cluster_video/output/UCF-101/snapshots_singleFrame_RGB/3darray.mat', out)
-        # print "saved."
-        # print "update    stops: ", time.ctime()
-
         # print("--- %s seconds for backward ---" % (time.time() - start_time))

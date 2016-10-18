@@ -1,14 +1,14 @@
 clear
 %function meas = purity( labels, labelgt, chosedPoints, flag)
-load /cs/vml2/xla193/cluster_video/output/UCF-101/outputlstm-UCF-101-20-1ft.mat % data
-load /cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-gtlabel-20.mat % label
+load /cs/vml2/xla193/cluster_video/output/UCF-101/outputsingle-UCF-101-10-1fttrigt4k.mat % data
+load /cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-gtlabel-10.mat % label
 % load ('/cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-label-20-0ft.mat', 'kmcenters')
 addpath(genpath('/cs/vml2/xla193/dmmc/code/visualization'))
 % order = randperm(size(data,1));
 % sdata = data(order,:);
 % slabel= label(order,:);
-[idx, kmcenters, sumd, D] = kmeans(data, 20, ...
-      'Replicates',200,'Display','final','MaxIter',300);
+[idx, kmcenters, sumd, D] = kmeans(data, 10, ...
+      'Replicates',100,'Display','final','MaxIter',300);
 
 % centers = kmcenters;
 % clear kmcenters
@@ -111,4 +111,5 @@ meas.ri = ri;
 meas.pa = pa;
 meas.nmi= nmi;
 
-save /cs/vml2/xla193/cluster_video/output/UCF-101/outputlabellstm-UCF-101-20-1ft.mat labels labelgt kmcenters mappedX meas
+%save /cs/vml2/xla193/cluster_video/output/UCF-101/outputlabelsingle-UCF-101-10-1ftsoft.mat labels labelgt kmcenters mappedX meas
+
