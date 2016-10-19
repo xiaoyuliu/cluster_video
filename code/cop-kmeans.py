@@ -12,54 +12,66 @@ optparser.add_option("--df", "--datafile", dest="datafile", default='UCF-101-gtl
 optparser.add_option("--cf", "--consfile", dest="consfile", default=None, help="Input const file name")
 optparser.add_option("-k", "--ncluster",   dest="ncluster", default=10, help="Input the number of clusters")
 optparser.add_option("--of", "--outfile",  dest="outfile",  default=None, help="Input output file name")
-optparser.add_option("--rp", "--repeat",   dest="repeat", default=5, help="Input repeat number of clustering")
+optparser.add_option("--rp", "--repeat",   dest="repeat", default=10, help="Input repeat number of clustering")
 
 (opts, _) = optparser.parse_args()
 
 data_root = '/cs/vml2/xla193/cluster_video/output/UCF-101'
 
-def cop_kmeans(dataset, k, ml=[], cl=[], repeat):
+def cop_kmeans(dataset, k, repeat, ml=[], cl=[]):
 	ml, cl = transitive_closure(ml, cl, len(dataset)) # return two dictionaries
 
+	finding_count   = 0
+	converged_count = 0
+	update_count    = 0
+
+	sumd = float("inf")
 	centers = initialize_centers(dataset, k)
 	clusters= [-1] * len(dataset)
-	count = 1
-	converged = False
-	while (not converged) or (count != repeat):
-		print ("Doing the %d-th clustering" % count)
-		clusters_ = [-1] * len(dataset)
-		for i, d in enumerate(dataset): # d:datapoint i:index in dataset
-			indices = closet_clusters(centers, d)
-			counter = 0
-			found_cluster = False
-			while (not found_cluster) and (counter < len(indices)):
-				index = indices[counter]
-				if not violate_constraints(i, index, clusters_, ml, cl):
-					found_cluster = True 
-					clusters_[i]  = index
-				counter += 1
+	# pdb.set_trace()
+	while(update_count < repeat):
+		converged = False
+		centers = initialize_centers(dataset, k)
+		clusters= [-1] * len(dataset)
+		while (not converged):
+			print ("-%d-th finding clustering - %f " % (finding_count, sumd))
+			clusters_ = [-1] * len(dataset)
+			for i, d in enumerate(dataset): # d:datapoint i:index in dataset
+				indices = closet_clusters(centers, d)
+				counter = 0
+				found_cluster = False
+				while (not found_cluster) and (counter < len(indices)):
+					index = indices[counter]
+					if not violate_constraints(i, index, clusters_, ml, cl):
+						found_cluster = True 
+						clusters_[i]  = index
+					counter += 1
 
-			if not found_cluster:
-				return None
-		clusters_, centers = compute_centers(clusters_, dataset)
+				if not found_cluster:
+					return None
+			clusters_, centers, sumd_ = compute_centers(clusters_, dataset)
 
-		converged = True
-		i = 0
-		while converged and (i < len(dataset)):
-			if clusters[i] != clusters_[i]:
-				converged = False
-			i += 1
-		clusters = clusters_
-		if converged==True:
-			sumd = calculate_within_distance(dataset, clusters, centers)
-			s_centers = centers
-			count += 1
+			finding_count += 1
 
-	pdb.set_trace()
+			converged = True
+			i = 0
+			while converged and (i < len(dataset)):
+				if clusters[i] != clusters_[i]:
+					converged = False
+				i += 1
+			clusters = clusters_
+			if converged == True:
+				converged_count += 1
+				print ("--%d-th converged clustering - smallest: %f - now: %f " % (converged_count, sumd, sumd_))
+				if sumd_ < sumd:
+					s_centers = centers
+					sumd = sumd_
+					update_count += 1
+					print ("!!!!!!!!!!!!!!!%d-th update clustering - %f " % (update_count, sumd))
+
+	# pdb.set_trace()
 	return clusters, centers
 
-def calculate_within_distance(dataset, clusters, centers):
-	
 
 def closet_clusters(centers, datapoint):
 	# pdb.set_trace()
@@ -96,36 +108,17 @@ def compute_centers(clusters, dataset):
 
 	ids = list(set(clusters))
 	centers = [ [0]*dim for i in range(k) ]
-
+	sumds = [0]*k
 	for id in ids:
 		data_ids = np.ndarray.tolist( np.where( np.array(clusters) == id )[0] )
 		datas = np.array( dataset )[data_ids,:]
 		center = np.mean(datas, axis=0, keepdims=True)
 		distance_list = sorted(range(len(data_ids)), key=lambda x: ssd.cdist(center, datas[[x],:], 'euclidean')[0][0])
 		centers[id] = np.ndarray.tolist(datas[distance_list[0]])
+		# pdb.set_trace()
+		sumds[id] = sum([ssd.cdist(datas[[distance_list[0]],:], datas[[distance_list[i]],:])[0][0] for i in range(1,len(data_ids))])
 
-	return clusters, centers
-
-	# ids = list(set(clusters))
-	# c_to_id = dict()
-	# for j, c in enumerate(ids):
-	# 	c_to_id[c] = j
-	# for j, c in enumerate(clusters):
-	# 	clusters[j] = c_to_id[c]
-
-	# k = len(ids)
-	# dim = len(dataset[0])
-	# centers = [[0.0] * dim for i in range(k)]
-	# counts = [0] * k
-	# for j,c in enumerate(clusters):
-	# 	for i in range(dim):
-	# 		centers[c][i] += dataset[j][i]
-	# 	counts[c] += 1
-	# for j in range(k):
-	# 	for i in range(dim):
-	# 		centers[j][i] = centers[j][i]/float(counts[j])
-
-	# return clusters, centers
+	return clusters, centers, sum(sumds)
 
 def transitive_closure(ml, cl, n): # n: the number of data points
 	ml_graph = dict()
@@ -194,12 +187,12 @@ def read_constrains(consfile):
 
 	return ml, cl
 
-def run(datafile, consfile, k, outfile):
+def run(datafile, consfile, k, outfile, repeat):
 
 	data = read_data(datafile) # 2D list
 	# ml, cl = read_constrains(consfile) # two 2D lists
 	ml, cl = [], []
-	cop_kmeans(data, k, ml, cl, repeat)
+	cop_kmeans(data, k, repeat, ml, cl)
 
 if __name__ == '__main__':
 	run(opts.datafile, opts.consfile, opts.ncluster, opts.outfile, opts.repeat)
