@@ -362,7 +362,8 @@ layer {
   top: "loss"
   python_param {
     module: "mylayers"
-    layer: "TripletLossLayer"
+    layer: "HardTripletLossLayer"
+    # layer: "TripletLossLayer"
   }
   loss_weight: 1
   include {

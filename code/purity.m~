@@ -1,38 +1,36 @@
 clear
-load /cs/vml2/xla193/cluster_video/output/UCF-101/cop-kmeans-result.mat
+load /cs/vml2/xla193/cluster_video/output/UCF-101/cop-kmeans.mat
 load /cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-gtlabel-10.mat % label
 % load ('/cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-label-20-0ft.mat', 'kmcenters')
-% addpath(genpath('/cs/vml2/xla193/dmmc/code/visualization'))
+addpath(genpath('/cs/vml2/xla193/dmmc/code/visualization'))
 
 % [idx, kmcenters, sumd, D] = kmeans(data, 10, ...
 %      'Replicates',100,'Display','final','MaxIter',300);
 
 % [idx, kmcenters, sumd, D] = kmeans(data, 20, ...
 %        'Display','final','MaxIter',300,'Start',centers);
-pdlabels = double(pdlabels');
+data = double(data');
 flag = 0;
 beta = 1;
 
 %%%%%%%%%%%%%%%%%%%%visualize%%%%%%%%%%%%%%%%%%%
-initial_dims = 100;
-no_dims = 2;
-perplexity = 30;
+%initial_dims = 100;
+%no_dims = 2;
+%perplexity = 30;
 
-mappedX = tsne(data, [], no_dims, initial_dims, perplexity);
-figure
-gscatter(mappedX(:,1), mappedX(:,2), labels);
+%mappedX = tsne(data, [], no_dims, initial_dims, perplexity);
+%figure
+%gscatter(mappedX(:,1), mappedX(:,2), labels);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% if flag
-%     ids = find(chosedPoints(:,2) >= 0);
-%     gtlabels = labelgt(ids,:);
-%     pdlabels = labels(ids,:);
-% else
-%     gtlabels = label;
-%     pdlabels = data;
-% end
-
-gtlabels = label;
+if flag
+    ids = find(chosedPoints(:,2) >= 0);
+    gtlabels = labelgt(ids,:);
+    pdlabels = labels(ids,:);
+else
+    gtlabels = label;
+    pdlabels = data;
+end
 unigt = unique(gtlabels);
 count_gt = histc(gtlabels, unigt);
 nugt = length(unigt);

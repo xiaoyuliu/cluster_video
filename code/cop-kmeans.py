@@ -1,8 +1,9 @@
 import random
+import time
 import numpy as np 
 import math
 import pdb
-import scipy.spatial.distance as ssd
+from scipy.spatial.distance import euclidean
 import scipy.io as sio
 import optparse
 import os
@@ -12,29 +13,36 @@ optparser.add_option("--df", "--datafile", dest="datafile", default='UCF-101-gtl
 optparser.add_option("--cf", "--consfile", dest="consfile", default=None, help="Input const file name")
 optparser.add_option("-k", "--ncluster",   dest="ncluster", default=10, help="Input the number of clusters")
 optparser.add_option("--of", "--outfile",  dest="outfile",  default=None, help="Input output file name")
-optparser.add_option("--rp", "--repeat",   dest="repeat", default=10, help="Input repeat number of clustering")
+optparser.add_option("--rp", "--repeat",   dest="repeat", default=100, help="Input repeat number of clustering")
+optparser.add_option("--sc", "--savecons",   dest="savecons", default='const.mat', help="Input name of save const file")
 
 (opts, _) = optparser.parse_args()
 
 data_root = '/cs/vml2/xla193/cluster_video/output/UCF-101'
 
-def cop_kmeans(dataset, k, repeat, ml=[], cl=[]):
+def cop_kmeans(dataset, k, repeat, savecons, ml=[], cl=[]):
 	ml, cl = transitive_closure(ml, cl, len(dataset)) # return two dictionaries
 
 	finding_count   = 0
 	converged_count = 0
 	update_count    = 0
+	init_count      = 0
+	vialate_count   = 0
 
 	sumd = float("inf")
-	centers = initialize_centers(dataset, k)
-	clusters= [-1] * len(dataset)
-	# pdb.set_trace()
-	while(update_count < repeat):
+	centers, centers_id = initialize_centers(dataset, k)
+	clusters = [-1] * len(dataset)
+	while(converged_count < repeat):
 		converged = False
-		centers = initialize_centers(dataset, k)
+		centers, centers_id = initialize_centers(dataset, k)
+		init_count          += 1
+		print "initial times: ", init_count
+		if not check_initialization(centers_id, ml):
+			continue
+		print "initialization check passed"
 		clusters= [-1] * len(dataset)
 		while (not converged):
-			print ("-%d-th finding clustering - %f " % (finding_count, sumd))
+			# print ("-%d-th finding clustering - %f " % (finding_count, sumd))
 			clusters_ = [-1] * len(dataset)
 			for i, d in enumerate(dataset): # d:datapoint i:index in dataset
 				indices = closet_clusters(centers, d)
@@ -45,11 +53,14 @@ def cop_kmeans(dataset, k, repeat, ml=[], cl=[]):
 					if not violate_constraints(i, index, clusters_, ml, cl):
 						found_cluster = True 
 						clusters_[i]  = index
+					else:
+						vialate_count += 1
+						print "violate, try again, time: ", vialate_count
 					counter += 1
 
 				if not found_cluster:
 					return None
-			clusters_, centers, sumd_ = compute_centers(clusters_, dataset)
+			clusters_, centers, centers_id, sumd_ = compute_centers(clusters_, dataset)
 
 			finding_count += 1
 
@@ -62,27 +73,110 @@ def cop_kmeans(dataset, k, repeat, ml=[], cl=[]):
 			clusters = clusters_
 			if converged == True:
 				converged_count += 1
-				print ("--%d-th converged clustering - smallest: %f - now: %f " % (converged_count, sumd, sumd_))
+				print ("--%d-th clustering - smallest: %f - now: %f " % (converged_count, sumd, sumd_))
+				print time.ctime()
 				if sumd_ < sumd:
-					s_centers = centers
+					s_clusters= clusters
+					s_centers = centers_id
 					sumd = sumd_
 					update_count += 1
-					print ("!!!!!!!!!!!!!!!%d-th update clustering - %f " % (update_count, sumd))
+					# print ("!!!!!!!!!!!!!!!%d-th update clustering - %f " % (update_count, sumd))
 
-	# pdb.set_trace()
-	return clusters, centers
+	gt_dict = sio.loadmat(os.path.join(data_root, 'UCF-101-gtlabel-10.mat'))
+	gt_array = gt_dict['label']
+	clusters, ml, cl = update_const(s_clusters, s_centers, gt_array, dataset, ml, cl)
+	save_const(ml, cl, savecons)
+	return clusters
 
+def save_const(ml, cl, savecons):
+	num_data = len(ml)
+	const = np.zeros([num_data, num_data])
+	for i in range(num_data):
+		if i in ml[i]:
+			ml[i].remove(i)
+		if i in cl[i]:
+			cl[i].remove(i)
+
+	for i in range(num_data):
+		for j in range(i+1,num_data):
+			if (j in ml[i]):
+				const[i][j] = 1
+				const[j][i] = 1
+			if (j in cl[i]):
+				const[i][j] = -1
+				const[j][i] = -1
+	consts = dict()
+	consts['const'] = const
+	savecons_file = os.path.join(data_root, savecons)
+	sio.savemat(savecons_file, consts)
+
+
+def update_const(clusters, centers_id, gt_array, dataset, ml, cl):
+	cluster_array = np.array(clusters)
+	ids = list(set(clusters))
+	for i in ids:
+		i_list = np.ndarray.tolist(np.where( cluster_array == i)[0]) # the index of datapoints belong to cluster i
+		# i_array= dataset[i_list,:] # the feature of datapoints belong to cluster i
+		i_distance = [euclidean(dataset[j], dataset[centers_id[i]]) for j in i_list] # the distance between datapoint and center
+		i_sort = sorted(range(len(i_list)), key=lambda x: i_distance[x])
+		idx_after_sort = [ i_list[i_sort[k]] for k in range(len(i_sort)) ]
+		if idx_after_sort[0]!=centers_id[i]:
+			print ("center %d's centroid is not correct" % i)
+			pdb.set_trace()
+			# raise Exception("center %d's centroid is not correct" % i)
+
+		# user-feedback
+		i_gt = gt_array[ centers_id[i],0 ]
+		for j in idx_after_sort[1:11]:
+			if gt_array[j]!=i_gt:
+				clusters[j] += len(ids)
+				delete_link(ml, centers_id[i], j)
+				add_link(cl, centers_id[i], j)
+			else:
+				add_link(ml, centers_id[i], j)
+				delete_link(cl, centers_id[i], j)
+
+		for j in idx_after_sort[-10:]:
+			if gt_array[j]!=i_gt:
+				clusters[j] += len(ids)
+				delete_link(ml, centers_id[i], j)
+				add_link(cl, centers_id[i], j)
+			else:
+				add_link(ml, centers_id[i], j)
+				delete_link(cl, centers_id[i], j)
+
+	print "cluster update finishes."
+	return clusters, ml, cl
+
+def add_link(l_graph, idx, idy):
+	if not idy in l_graph[idx]:
+		l_graph[idx].add(idy)
+	if not idx in l_graph[idy]:
+		l_graph[idy].add(idx)
+
+def delete_link(l_graph, idx, idy):
+	if idy in l_graph[idx]:
+		l_graph[idx].remove(idy)
+	if idx in l_graph[idy]:
+		l_graph[idy].remove(idx)
+
+def check_initialization(centers_id, ml):
+	if not any(x != set([]) for x in ml.itervalues()):
+		return True
+	for i_id in centers_id:
+		for j_id in centers_id:
+			if j_id in ml[i_id]:
+				return False
+	return True
 
 def closet_clusters(centers, datapoint):
-	# pdb.set_trace()
-	distances = [ssd.cdist(np.array(center).reshape(1,len(center)), 
-				 np.array(datapoint).reshape(1,len(datapoint)), 'euclidean')[0][0] for center in centers]
+	distances = [euclidean( np.array([center]), np.array([datapoint])) for center in centers]
 	return sorted(range(len(distances)), key=lambda x: distances[x]) # i-th element is the index of i-th smallest entry
 
 def initialize_centers(dataset, k):
 	ids = range(len(dataset))
 	random.shuffle(ids)
-	return [dataset[id] for id in ids[:k]]
+	return [dataset[id] for id in ids[:k]], [id for id in ids[:k]]
 
 def violate_constraints(data_index, cluster_index, clusters, ml, cl):
 	for i in ml[data_index]:
@@ -108,17 +202,18 @@ def compute_centers(clusters, dataset):
 
 	ids = list(set(clusters))
 	centers = [ [0]*dim for i in range(k) ]
+	centers_id = [0] * k
 	sumds = [0]*k
 	for id in ids:
 		data_ids = np.ndarray.tolist( np.where( np.array(clusters) == id )[0] )
 		datas = np.array( dataset )[data_ids,:]
 		center = np.mean(datas, axis=0, keepdims=True)
-		distance_list = sorted(range(len(data_ids)), key=lambda x: ssd.cdist(center, datas[[x],:], 'euclidean')[0][0])
-		centers[id] = np.ndarray.tolist(datas[distance_list[0]])
-		# pdb.set_trace()
-		sumds[id] = sum([ssd.cdist(datas[[distance_list[0]],:], datas[[distance_list[i]],:])[0][0] for i in range(1,len(data_ids))])
+		distance_list = sorted(range(len(data_ids)), key=lambda x: euclidean(center, datas[[x],:]))
+		centers_id[id] = data_ids[distance_list[0]]
+		centers[id] = dataset[centers_id[id]]
+		sumds[id] = sum([euclidean(dataset[centers_id[id]], i) for i in datas])
 
-	return clusters, centers, sum(sumds)
+	return clusters, centers, centers_id, sum(sumds)
 
 def transitive_closure(ml, cl, n): # n: the number of data points
 	ml_graph = dict()
@@ -174,9 +269,10 @@ def read_data(datafile):
 	return data
 
 def read_constrains(consfile):
+	# pdb.set_trace()
 	ml, cl = [], []
-	constdict = sio.loadmat(consfile) # load constraint matrix, 1:MUST LINK -1:CANNOT LINK
-	cons = constdict['data']
+	constdict = sio.loadmat(os.path.join(data_root, consfile)) # load constraint matrix, 1:MUST LINK -1:CANNOT LINK
+	cons = constdict['const']
 	for i in range(cons.shape[0]):
 		for j in range(cons.shape[1]):
 			constraint = (int(i), int(j))
@@ -187,12 +283,16 @@ def read_constrains(consfile):
 
 	return ml, cl
 
-def run(datafile, consfile, k, outfile, repeat):
+def run(datafile, consfile, k, outfile, repeat, savecons):
 
 	data = read_data(datafile) # 2D list
 	# ml, cl = read_constrains(consfile) # two 2D lists
 	ml, cl = [], []
-	cop_kmeans(data, k, repeat, ml, cl)
+	labels=cop_kmeans(data, k, repeat, savecons, ml, cl)
+	data_save = dict()
+	data_save['pdlabels'] = labels 
+	sio.savemat(os.path.join(data_root, 'cop-kmeans-result.mat'), data_save)
+	# pdb.set_trace()
 
 if __name__ == '__main__':
-	run(opts.datafile, opts.consfile, opts.ncluster, opts.outfile, opts.repeat)
+	run(opts.datafile, opts.consfile, opts.ncluster, opts.outfile, opts.repeat, opts.savecons)

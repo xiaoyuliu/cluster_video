@@ -29,7 +29,7 @@ def combine_pl( labelin, pathin, countin, pathout, database):
 	with open(output_file, 'w') as outf:
 		label_dic = sio.loadmat( label_file )
 		# pdb.set_trace()
-		labels    = label_dic['labels']
+		labels    = label_dic['pdlabels'][0]
 		video_id  = 0
 		frame_id  = 0
 		num_fms   = int( counts[video_id] )
@@ -37,6 +37,7 @@ def combine_pl( labelin, pathin, countin, pathout, database):
 			(image_path, label_indicator) = path.strip().split(' ')
 			frame_id += 1
 			if (frame_id < num_fms):
+				# pdb.set_trace()
 				content = image_path + ' ' + str(int(labels[video_id])) + '\n'
 				outf.write(content)
 				print "writing: ", content
