@@ -8,7 +8,7 @@ import scipy.io as sio
 class HardTripletLossLayer(caffe.Layer):
 
     def setup(self, bottom, top):
-        if len(bottom)!=2:
+        if len(bottom)!=3:
             raise Exception("Need two inputs to compute triplet loss")
 
     def reshape(self, bottom, top):
@@ -36,21 +36,33 @@ class HardTripletLossLayer(caffe.Layer):
         self.A_ind = []
         self.B_ind = []
         self.C_ind = []
-        for i_cluster in unilabels:
-            ids = np.where(labels == i_cluster)[0]
-            ids_p = np.ndarray.tolist(ids)
-            ids_n = list(set(total_list) - set(ids_p))
-            for a_id in ids_p:
-                p_order = sorted(ids_p, key = lambda x: distances[a_id, x], reverse = True)
-                n_order = sorted(ids_n, key = lambda x: distances[a_id, x])
-                n_neg = int(5)
-                if (len(p_order) < n_neg+1) or (len(n_order) < n_neg):
-                    n_neg = min( len(p_order)-1, len(n_order) )
-                # print "number of triplet: ", n_neg
-                for i in range(n_neg):
-                    self.A_ind.append(a_id)
-                    self.B_ind.append(p_order[i])
-                    self.C_ind.append(n_order[i])
+        for i in total_list:
+            label_vec = labels[i]
+            flag = False
+            idx  = 0
+            for id,l in enumerate(label_vec):
+                if l>0:
+                    flag = True
+                    idx  = id
+                    break
+            if not flag:
+                continue
+            i_label = label_vec[idx]
+            ids_p = []
+            ids_n = []
+            for j in total_list:
+                if j==i:
+                    continue
+                if i_label in labels[j]:
+                    ids_p.append(j)
+                    continue
+                if (-i_label in labels[j]):
+                    ids_n.append(j)
+            for p in ids_p:
+                for n in ids_n:
+                    self.A_ind.append(i)
+                    self.B_ind.append(p)
+                    self.C_ind.append(n)
                     n_trip += 1
         if n_trip==0:
             print "No triplet found"
@@ -67,7 +79,7 @@ class HardTripletLossLayer(caffe.Layer):
             an = euclidean(self.anchor[i,:], self.negative[i,:])**2
             _loss = max( margin+ap-an, 0)
             if i == 0:
-                # print ('loss:' + str(_loss) + ' ap:' + str(ap) + ' an:' + str(an))
+                print ('loss:' + str(_loss) + ' ap:' + str(ap) + ' an:' + str(an))
                 pass
             if _loss == 0:
                 self.no_residual_list.append(i)
@@ -86,7 +98,6 @@ class HardTripletLossLayer(caffe.Layer):
         pids = self.B_ind
         nids = self.C_ind
         a = 1
-        # pdb.set_trace()
         diffs = np.zeros([ feats.shape[0], anchor.shape[0], feats.shape[1] ])
         if propagate_down[0]:
             for i in range(anchor.shape[0]):

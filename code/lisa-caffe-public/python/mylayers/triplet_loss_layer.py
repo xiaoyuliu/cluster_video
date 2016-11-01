@@ -16,7 +16,7 @@ class TripletLossLayer(caffe.Layer):
     def forward(self, bottom, top):
         # print "forward starts:  ", time.ctime()
         self.feats = bottom[0].data
-        # pdb.set_trace()
+        pdb.set_trace()
         labels= bottom[1].data
         n_neg = int(5)
         num_s = self.feats.shape[0]

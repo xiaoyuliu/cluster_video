@@ -1,6 +1,5 @@
 import optparse, os, sys, pdb
 import scipy.io as sio
-import pdb
 
 optparser = optparse.OptionParser()
 optparser.add_option("--li", "--label", dest="label", default='outputlabel-UCF-101-10-0ft.mat', help="Input label file name")
@@ -24,11 +23,9 @@ def combine_pl( labelin, pathin, countin, pathout, database):
 	with open(count_file,'r') as countf:
 		counts= countf.readlines()
 
-	# pdb.set_trace()
 
 	with open(output_file, 'w') as outf:
 		label_dic = sio.loadmat( label_file )
-		# pdb.set_trace()
 		labels    = label_dic['pdlabels'][0]
 		video_id  = 0
 		frame_id  = 0
@@ -37,7 +34,6 @@ def combine_pl( labelin, pathin, countin, pathout, database):
 			(image_path, label_indicator) = path.strip().split(' ')
 			frame_id += 1
 			if (frame_id < num_fms):
-				# pdb.set_trace()
 				content = image_path + ' ' + str(int(labels[video_id])) + '\n'
 				outf.write(content)
 				print "writing: ", content

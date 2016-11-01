@@ -1,16 +1,17 @@
 net: "train_test_singleFrame_RGB.prototxt"
 test_iter: 75 
 test_state: { stage: 'test-on-test' }
-test_interval: 1000
+test_interval: 3000
 base_lr: 0.000001
 lr_policy: "step"
 gamma: 0.1
-stepsize: 1000
+stepsize: 600
 display: 20
-max_iter: 8000
+max_iter: 2000000
+# 28902 in total
 momentum: 0.9
 weight_decay: 0.005  
-snapshot: 1000
+snapshot: 410
 snapshot_prefix: "/cs/vml2/xla193/cluster_video/output/UCF-101/snapshots_singleFrame_RGB/"
 solver_mode: GPU
 #solver_mode: CPU

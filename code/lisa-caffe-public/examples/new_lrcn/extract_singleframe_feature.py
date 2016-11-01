@@ -16,6 +16,7 @@ optparser.add_option("-f", "--feat", dest="feat", type=int, default=int(4096), h
 (opts, _)= optparser.parse_args()
 
 data_root     = '/cs/vml2/xla193/cluster_video'
+local_root    = '/local-scratch/xla193/cluster_video'
 model_root    = os.path.join( data_root, 'output/UCF-101' )
 net_root      = os.path.join( data_root, 'code/lisa-caffe-public/examples/new_lrcn' )
 
@@ -34,7 +35,7 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
     
   caffe.set_device(device_id)
   net = caffe.Net(os.path.join( net_root, 'train_test_singleFrame_RGB.prototxt' ),
-                  os.path.join( model_root, 'snapshots_singleFrame_RGB/_iter_4000.caffemodel' ),
+                  os.path.join( model_root, 'snapshots_singleFrame_RGB/_iter_820.caffemodel' ),
                   caffe.TEST)
   frame_id = 0
   video_feats = np.zeros((N, F))
@@ -75,7 +76,7 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
   # out_mat['mcf_label']  = data2
   out_mat['data']   = data
 
-  out_path = os.path.join( data_root, 'output/UCF-101', out_filename )
+  out_path = os.path.join( local_root, 'output/UCF-101', out_filename )
 
   sys.stdout.write( 'Dump mat file: {0}.\n'.format(out_path) )
   scipy.io.savemat( out_path, out_mat )

@@ -16,14 +16,28 @@ layer {
     flow: false
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-10withgtlabel.txt"
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-0labelvect-random.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
     new_width: 320
-    shuffle: true
+    shuffle: false
   }
 }
+
+layer {
+  name: "train_label"
+  type: "HDF5Data"
+  top:  "train_label"
+  include {
+    phase: TRAIN
+  }
+  hdf5_data_param {
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/train_label_0.txt"
+    batch_size: 50
+  }
+}
+
 layer {
   name: "data"
   type: "ImageData"
@@ -39,10 +53,10 @@ layer {
     mean_value: 103.939
     mean_value: 116.779
     mean_value: 123.68
-    flow: false
+    flow: true
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-10withgtlabel.txt"
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-0labelvect-random.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
@@ -50,6 +64,20 @@ layer {
     shuffle: false
   }
 }
+
+layer {
+  name: "test_label"
+  type: "HDF5Data"
+  top:  "test_label"
+  include {
+    phase: TEST
+  }
+  hdf5_data_param {
+    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/test_label_0.txt"
+    batch_size: 50
+  }
+}
+
 layer {
   name: "conv1"
   type: "Convolution"
@@ -358,12 +386,13 @@ layer {
   name: "loss"
   type: "Python"
   bottom: "fc7"
+  bottom: "train_label"
   bottom: "label"
   top: "loss"
   python_param {
     module: "mylayers"
     layer: "HardTripletLossLayer"
-    # layer: "TripletLossLayer"
+    #layer: "TripletLossLayer"
   }
   loss_weight: 1
   include {
