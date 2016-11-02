@@ -35,7 +35,7 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
     
   caffe.set_device(device_id)
   net = caffe.Net(os.path.join( net_root, 'train_test_singleFrame_RGB.prototxt' ),
-                  os.path.join( model_root, 'snapshots_singleFrame_RGB/_iter_820.caffemodel' ),
+                  os.path.join( model_root, 'snapshots_singleFrame_RGB/1_iter_1700.caffemodel' ),
                   caffe.TEST)
   frame_id = 0
   video_feats = np.zeros((N, F))
@@ -73,7 +73,6 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
   sys.stdout.write('Done.\n')
   # pdb.set_trace()
   out_mat = dict()
-  # out_mat['mcf_label']  = data2
   out_mat['data']   = data
 
   out_path = os.path.join( data_root, 'output/UCF-101', out_filename )

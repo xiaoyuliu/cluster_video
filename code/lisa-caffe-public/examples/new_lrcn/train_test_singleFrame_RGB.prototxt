@@ -16,7 +16,8 @@ layer {
     flow: false
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-0labelvect-random.txt"
+    source: "/local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-2labelvect-random.txt"
+    #source: "/local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-10withgtlabel.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
@@ -33,7 +34,7 @@ layer {
     phase: TRAIN
   }
   hdf5_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/train_label_0.txt"
+    source: "/local-scratch/xla193/cluster_video_/output/UCF-101/train_label_2.txt"
     batch_size: 50
   }
 }
@@ -56,7 +57,8 @@ layer {
     flow: true
   }
   image_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/list_frm-0labelvect-random.txt"
+    source: "/local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-2labelvect-random.txt"
+    #source: "/local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-10withgtlabel.txt"
     root_folder: "frames/"
     batch_size: 50
     new_height: 240
@@ -73,7 +75,7 @@ layer {
     phase: TEST
   }
   hdf5_data_param {
-    source: "/cs/vml2/xla193/cluster_video/output/UCF-101/test_label_0.txt"
+    source: "/local-scratch/xla193/cluster_video_/output/UCF-101/test_label_2.txt"
     batch_size: 50
   }
 }

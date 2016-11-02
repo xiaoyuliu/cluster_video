@@ -9,7 +9,7 @@ optparser.add_option("-o", "--ofile", dest ="ofile", default=None, help="order f
 optparser.add_option("-f",  "--ffile",dest ="ffile", default=None, help="output frame path & label file")
 
 (opts, _) = optparser.parse_args()
-data_root = '/cs/vml2/xla193/cluster_video/output/UCF-101'
+data_root = '/local-scratch/xla193/cluster_video_/output/UCF-101'
 
 def combine_usfb(video_path, labelfile, orderfile, framefile):
 	with open(os.path.join(data_root, video_path), 'r') as vinf:
@@ -25,7 +25,7 @@ def combine_usfb(video_path, labelfile, orderfile, framefile):
 		for id in userfb_list:
 			video = videos[id]
 			vpath_, nouse = video.strip().split(' ')
-			vpath = os.path.join('/cs/vml2/xla193/cluster_video/datasets/UCF-101/', vpath_)
+			vpath = os.path.join('/local-scratch/xla193/cluster_video_/datasets/UCF-101/', vpath_)
 			fms = os.listdir(vpath)
 			for fm in fms:
 				fpath = os.path.join(vpath, fm)
