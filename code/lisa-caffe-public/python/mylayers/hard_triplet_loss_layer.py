@@ -71,7 +71,7 @@ class HardTripletLossLayer(caffe.Layer):
         self.positive = self.feats[self.B_ind,:]
         self.negative = self.feats[self.C_ind,:]
 
-        margin = 1000
+        margin = 10000
         loss   = float(0)
         self.no_residual_list = []
         for i in range(n_trip):

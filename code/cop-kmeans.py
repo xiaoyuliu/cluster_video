@@ -13,7 +13,7 @@ optparser.add_option("--df", "--datafile", dest ="datafile", default='UCF-101-gt
 optparser.add_option("--cf", "--consfile", dest ="consfile", default=None, help="Input const file name")
 optparser.add_option("-k", "--ncluster",   dest ="ncluster", default=10, help="Input the number of clusters")
 optparser.add_option("--of", "--outfile",  dest ="outfile",  default=None, help="Input output file name")
-optparser.add_option("--rp", "--repeat",   dest ="repeat", default=5, help="Input repeat number of clustering")
+optparser.add_option("--rp", "--repeat",   dest ="repeat", default=10, help="Input repeat number of clustering")
 optparser.add_option("--sc", "--savecons", dest ="savecons", default='const1.mat', help="Input name of save const file")
 optparser.add_option("--sv", "--savevects",dest ="savevects", default=None, help="Input name of save labelvector file")
 (opts, _) = optparser.parse_args()
@@ -32,7 +32,7 @@ def cop_kmeans(dataset, k, repeat, savecons, savevects, ml=[], cl=[]):
 
 	sumd = float("inf")
 	centers, centers_id = initialize_centers(dataset, k)
-	clusters = [-1] * len(dataset)
+	clusters = [0] * len(dataset)
 	while(converged_count < repeat):
 		converged = False
 		centers, centers_id = initialize_centers(dataset, k)
@@ -41,20 +41,20 @@ def cop_kmeans(dataset, k, repeat, savecons, savevects, ml=[], cl=[]):
 		if not check_initialization(centers_id, ml):
 			continue
 		print "initialization check passed"
-		clusters= [-1] * len(dataset)
+		clusters= [0] * len(dataset)
 		vialate_count   = 0
 		while (not converged):
 			# print ("-%d-th finding clustering - %f " % (finding_count, sumd))
-			clusters_ = [-1] * len(dataset)
+			clusters_ = [0] * len(dataset)
 			for i, d in enumerate(dataset): # d:datapoint i:index in dataset
 				indices = closet_clusters(centers, d)
 				counter = 0
 				found_cluster = False
 				while (not found_cluster) and (counter < len(indices)):
 					index = indices[counter]
-					if not violate_constraints(i, index, clusters_, ml, cl):
+					if not violate_constraints(i, centers_id[index], index, clusters_, ml, cl):
 						found_cluster = True 
-						clusters_[i]  = index
+						clusters_[i]  = index+1
 					else:
 						vialate_count += 1
 						print "violate, try again, number: ", vialate_count, " total allowed: ", break_num, "\r",
@@ -176,14 +176,14 @@ def update_const(clusters_train, centers_id, gt_array, dataset, ml, cl):
 		i_sort = sorted(range(len(i_list)), key=lambda x: i_distance[x])
 		idx_after_sort = [ i_list[i_sort[k]] for k in range(len(i_sort)) ]
 		if idx_after_sort[0]!=centers_id[i]:
-			print ("center %d's centroid is not correct" % i)
+			print ("center %d's medoid is not correct" % i)
 			pdb.set_trace()
 
 		# user-feedback
 		K = 10
 		i_gt = gt_array[ centers_id[i],0 ]
 		for j in idx_after_sort[1:K+1]:
-			if gt_array[j]!=i_gt:
+			if gt_array[j]!=i_gt: # ground truth negative
 				clusters_train[j] = -label
 				delete_link(ml, centers_id[i], j)
 				add_link(cl, centers_id[i], j)
@@ -191,13 +191,17 @@ def update_const(clusters_train, centers_id, gt_array, dataset, ml, cl):
 					clusters_train[k] = -label
 					delete_link(ml, centers_id[i], k)
 					add_link(cl, centers_id[i], k)
-			else:
+			else: # ground truth positive
 				add_link(ml, centers_id[i], j)
 				delete_link(cl, centers_id[i], j)
 				for k in ml[j]:
 					clusters_train[k] = label
 					add_link(ml, centers_id[i], k)
 					delete_link(cl, centers_id[i], k)
+				for k in cl[j]:
+					clusters_train[k] = -label
+					add_link(cl, centers_id[i], k)
+					delete_link(ml, centers_id[i], k)
 		for j in idx_after_sort[-K:]:
 			if gt_array[j]!=i_gt:
 				clusters_train[j] = -label
@@ -247,12 +251,16 @@ def initialize_centers(dataset, k):
 	random.shuffle(ids)
 	return [dataset[id] for id in ids[:k]], [id for id in ids[:k]]
 
-def violate_constraints(data_index, cluster_index, clusters, ml, cl):
+def violate_constraints(data_index, cluster_index, label, clusters, ml, cl):
+	if data_index in ml[cluster_index] and clusters[data_index] == 0:
+		return False
+	if data_index in cl[cluster_index] or clusters[data_index] != 0:
+		return True
 	for i in ml[data_index]:
-		if clusters[i] != -1 and clusters[i] != cluster_index:
+		if clusters[i] != 0 and clusters[i] != label+1:
 			return True
 	for i in cl[data_index]:
-		if clusters[i] == cluster_index:
+		if clusters[i] == label+1:
 			return True
 	return False
 
@@ -358,13 +366,14 @@ def run(datafile, consfile, k, outfile, repeat, savecons, savevects):
 		ml, cl = [], []
 	else:
 		ml, cl = read_constrains(consfile) # two 2D lists
+	pdb.set_trace()
 	labels, train_labels=cop_kmeans(data, k, repeat, savecons, savevects, ml, cl)
 	if not labels:
 		pdb.set_trace()
 	data_save = dict()
-	data_save['pdlabels'] = labels 
+	data_save['pdlabels'] = labels
 	data_save['train_labels'] = train_labels
-	sio.savemat(os.path.join(data_root, 'cop-kmeans-result1.mat'), data_save)
+	sio.savemat(os.path.join(data_root, 'cop-kmeans-result2.mat'), data_save)
 
 if __name__ == '__main__':
 	run(opts.datafile, opts.consfile, opts.ncluster, opts.outfile, opts.repeat, opts.savecons, opts.savevects)

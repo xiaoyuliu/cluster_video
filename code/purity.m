@@ -1,6 +1,6 @@
 clear
 load /local-scratch/xla193/cluster_video_/output/UCF-101/outputsingle-UCF-101-10-uf2.mat
-load /local-scratch/xla193/cluster_video_/output/UCF-101/cop-kmeans-result1.mat
+load /local-scratch/xla193/cluster_video_/output/UCF-101/cop-kmeans-result2.mat
 load /local-scratch/xla193/cluster_video_/output/UCF-101/UCF-101-gtlabel-10.mat % label
 % load ('/cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-label-20-0ft.mat', 'kmcenters')
 addpath(genpath('/cs/vml2/xla193/dmmc/code/visualization'))
