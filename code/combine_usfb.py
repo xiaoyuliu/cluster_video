@@ -19,7 +19,6 @@ def combine_usfb(video_path, labelfile, orderfile, framefile):
 	userfb_dict = sio.loadmat(os.path.join(data_root, orderfile))
 	userfb_array= userfb_dict['ufids'][0]
 	userfb_list = list(userfb_array)
-	
 	with open(os.path.join(data_root, framefile), 'w') as foutf:
 		count = 0
 		for id in userfb_list:

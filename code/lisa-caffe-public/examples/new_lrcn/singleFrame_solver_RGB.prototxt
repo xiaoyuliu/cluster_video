@@ -1,18 +1,18 @@
 net: "train_test_singleFrame_RGB.prototxt"
 test_iter: 75 
 test_state: { stage: 'test-on-test' }
-test_interval: 3000
-base_lr: 0.0000001
+test_interval: 9900
+base_lr: 0.000000001
 lr_policy: "step"
 gamma: 0.1
-stepsize: 1050
+stepsize: 3200
 display: 20
-max_iter: 2100
+max_iter: 9600
 # 32164 in total
 momentum: 0.9
 weight_decay: 0.005  
-snapshot: 1050
-snapshot_prefix: "/local-scratch/xla193/cluster_video_/output/UCF-101/snapshots_singleFrame_RGB/2"
+snapshot: 1600
+snapshot_prefix: "/local-scratch/xla193/cluster_video_/output/UCF-101/snapshots_singleFrame_RGB/2-5w"
 solver_mode: GPU
 #solver_mode: CPU
 device_id: 0

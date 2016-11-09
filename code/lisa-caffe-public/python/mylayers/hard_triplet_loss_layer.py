@@ -54,9 +54,11 @@ class HardTripletLossLayer(caffe.Layer):
                 if j==i:
                     continue
                 if i_label in labels[j]:
+                # if i_label == labels[j]:
                     ids_p.append(j)
                     continue
                 if (-i_label in labels[j]):
+                # if i_label != labels[j]:
                     ids_n.append(j)
             for p in ids_p:
                 for n in ids_n:
@@ -77,9 +79,16 @@ class HardTripletLossLayer(caffe.Layer):
         for i in range(n_trip):
             ap = euclidean(self.anchor[i,:], self.positive[i,:])**2
             an = euclidean(self.anchor[i,:], self.negative[i,:])**2
+            if ap>margin or an>margin:
+                if ap>an:
+                    an = an*margin*10/ap
+                    ap = margin*10
+                if an>ap:
+                    ap = ap*margin*10/an
+                    an = margin*10
             _loss = max( margin+ap-an, 0)
             if i == 0:
-                print ('loss:' + str(_loss) + ' ap:' + str(ap) + ' an:' + str(an))
+                # print ('loss:' + str(_loss) + ' ap:' + str(ap) + ' an:' + str(an))
                 pass
             if _loss == 0:
                 self.no_residual_list.append(i)
