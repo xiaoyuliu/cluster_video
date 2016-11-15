@@ -1,11 +1,11 @@
 clear
 % load /local-scratch/xla193/cluster_video_/output/UCF-101/output-UCF-101-10-10gt2100.mat
 load /cs/vml2/xla193/cluster_video/output/UCF-101/mappedX.mat
-load /local-scratch/xla193/cluster_video_/output/UCF-101/cop-kmeans-result8.mat
+load /local-scratch/xla193/cluster_video_/output/UCF-101/cop-kmeans-result-relabel-fix9.mat
 load /local-scratch/xla193/cluster_video_/output/UCF-101/UCF-101-gtlabel-10.mat % label
 % load ('/cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-label-20-0ft.mat', 'kmcenters')
 addpath(genpath('/cs/vml2/xla193/dmmc/code/visualization'))
-s = '0ft randomly initialization - 7ck';
+s = '0ft fix initialization - 8ck - relabel';
 % centers = zeros(10,4096);
 % centers(1,:) = data(1,:);
 % centers(2,:) = data(146,:);
@@ -113,6 +113,7 @@ ri = 1 - ((FP + FN) / TPFPTNFN);
 meas.ri = ri
 meas.pa = pa
 meas.nmi= nmi
+
 str = {['ri:   ', num2str(ri)], ['pa:  ', num2str(pa)], ['nmi:', num2str(nmi)]};
 dim = [.15 .6 .3 .3];
 annotation('textbox', dim, 'String', str, 'FitBoxToText', 'on');

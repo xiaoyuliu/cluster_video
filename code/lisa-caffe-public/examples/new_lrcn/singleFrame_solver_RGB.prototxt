@@ -5,14 +5,14 @@ test_interval: 9900
 base_lr: 0.000000001
 lr_policy: "step"
 gamma: 0.1
-stepsize: 3200
+stepsize: 577
 display: 20
-max_iter: 9600
-# 32164 in total
+max_iter: 5770
+# 28842 in total
 momentum: 0.9
 weight_decay: 0.005  
-snapshot: 1600
-snapshot_prefix: "/local-scratch/xla193/cluster_video_/output/UCF-101/snapshots_singleFrame_RGB/2-5w"
+snapshot: 577
+snapshot_prefix: "/local-scratch/xla193/cluster_video_/output/UCF-101/snapshots_singleFrame_RGB/0_fix_margin10e3"
 solver_mode: GPU
 #solver_mode: CPU
 device_id: 0
