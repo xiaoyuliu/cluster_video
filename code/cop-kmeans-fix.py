@@ -229,15 +229,17 @@ def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 			j_gt = gt_array[j][0]
 			if (j_gt == i_gt):
 				clusters_train[j] = clusters_train[i_center]
-				for k in ml[i_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					clusters_train[k] = clusters_train[i_center]
-					add_link(ml, k, i_center)
-					delete_link(cl, k, i_center)
 				add_link(ml, i_center, j)
 				delete_link(cl, i_center, j)
+				for k in ml[i_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != i_center:
+						clusters_train[k] = clusters_train[i_center]
+						add_link(ml, k, i_center)
+						delete_link(cl, k, i_center)
 				for k1 in ml[j]:
 					for k2 in ml[j]:
 						if k1 == k2:
@@ -259,18 +261,20 @@ def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 			if (j_gt != i_gt) and (gt_labels.count(j_gt) > 0):
 				new_center = center_dict[j_gt]
 				new_label = clusters_train[new_center]
-				for k in ml[new_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					add_link(ml, new_center, k)
-					delete_link(cl, new_center, k)
 				add_link(ml, new_center, j)
 				delete_link(cl, new_center, j)
 				add_link(cl, new_center, i_center)
 				delete_link(ml, new_center, i_center)
 				add_link(cl, j, i_center)
 				delete_link(ml, j, i_center)
+				for k in ml[new_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != new_center:
+						add_link(ml, new_center, k)
+						delete_link(cl, new_center, k)
 				for k1 in ml[j]:
 					for k2 in ml[j]:
 						if k1 == k2:
@@ -311,15 +315,17 @@ def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 			j_gt = gt_array[j][0]
 			if (j_gt == i_gt):
 				clusters_train[j] = clusters_train[i_center]
-				for k in ml[i_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					clusters_train[k] = clusters_train[i_center]
-					add_link(ml, k, i_center)
-					delete_link(cl, k, i_center)
 				add_link(ml, i_center, j)
 				delete_link(cl, i_center, j)
+				for k in ml[i_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != i_center:
+						clusters_train[k] = clusters_train[i_center]
+						add_link(ml, k, i_center)
+						delete_link(cl, k, i_center)
 				for k1 in ml[j]:
 					for k2 in ml[j]:
 						if k1 == k2:
@@ -341,18 +347,20 @@ def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 			if (j_gt != i_gt) and (gt_labels.count(j_gt) > 0):
 				new_center = center_dict[j_gt]
 				new_label = clusters_train[new_center]
-				for k in ml[new_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					add_link(ml, new_center, k)
-					delete_link(cl, new_center, k)
 				add_link(ml, new_center, j)
 				delete_link(cl, new_center, j)
 				add_link(cl, new_center, i_center)
 				delete_link(ml, new_center, i_center)
 				add_link(cl, j, i_center)
 				delete_link(ml, j, i_center)
+				for k in ml[new_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != new_center:
+						add_link(ml, new_center, k)
+						delete_link(cl, new_center, k)
 				for k1 in ml[j]:
 					for k2 in ml[j]:
 						if k1 == k2:
@@ -429,14 +437,16 @@ def update_const(clusters_train, centers_id, gt_array, dataset, ml, cl):
 						add_link(cl, k1, k2)
 						delete_link(ml, k1, k2)
 			else: # ground truth positive
-				for k in ml[i_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					add_link(ml, i_center, k)
-					delete_link(cl, i_center, k)
 				add_link(ml, i_center, j)
 				delete_link(cl, i_center, j)
+				for k in ml[i_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != i_center:
+						add_link(ml, i_center, k)
+						delete_link(cl, i_center, k)
 				for k in cl[i_center]:
 					add_link(cl, j, k)
 					delete_link(ml, j, k)
@@ -476,14 +486,16 @@ def update_const(clusters_train, centers_id, gt_array, dataset, ml, cl):
 						add_link(cl, k1, k2)
 						delete_link(ml, k1, k2)
 			else: # ground truth positive
-				for k in ml[i_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					add_link(ml, i_center, k)
-					delete_link(cl, i_center, k)
 				add_link(ml, i_center, j)
 				delete_link(cl, i_center, j)
+				for k in ml[i_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != i_center:
+						add_link(ml, i_center, k)
+						delete_link(cl, i_center, k)
 				for k in cl[i_center]:
 					add_link(cl, j, k)
 					delete_link(ml, j, k)
@@ -659,7 +671,7 @@ def run(datafile, consfile, k, outfile, repeat, savecons, savevects):
 	data_save = dict()
 	data_save['pdlabels'] = labels
 	data_save['train_labels'] = train_labels
-	sio.savemat(os.path.join(data_root, 'cop-kmeans-result-fix0.mat'), data_save)
+	sio.savemat(os.path.join(data_root, 'cop-kmeans-result-fix-ft1.mat'), data_save)
 
 if __name__ == '__main__':
 	run(opts.datafile, opts.consfile, opts.ncluster, opts.outfile, opts.repeat, opts.savecons, opts.savevects)
