@@ -24,12 +24,14 @@ def combine_usfb(video_path, labelfile, orderfile, framefile):
 		for id in userfb_list:
 			video = videos[id]
 			vpath_, nouse = video.strip().split(' ')
-			vpath = os.path.join('/local-scratch/xla193/cluster_video_/datasets/UCF-101/', vpath_)
-			fms = os.listdir(vpath)
-			for fm in fms:
-				fpath = os.path.join(vpath, fm)
-				content = fpath+' '+labels[count]
-				foutf.write(content)
+			content = vpath_+' '+labels[count]
+			foutf.write(content)
+			# vpath = os.path.join('/local-scratch/xla193/cluster_video_/datasets/UCF-101/', vpath_)
+			# fms = os.listdir(vpath)
+			# for fm in fms:
+			# 	fpath = os.path.join(vpath, fm)
+			# 	content = fpath+' '+labels[count]
+			# 	foutf.write(content)
 			count += 1
 
 if __name__ == '__main__':

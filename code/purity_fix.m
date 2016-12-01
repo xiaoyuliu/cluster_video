@@ -1,22 +1,28 @@
 clear
-% load /local-scratch/xla193/cluster_video_/output/UCF-101/output-UCF-101-10-10gt2100.mat
-load /cs/vml2/xla193/cluster_video/output/UCF-101/mappedX.mat
-load /local-scratch/xla193/cluster_video_/output/UCF-101/cop-kmeans-result-fix0.mat
+
+target = '1ft2ep-7';
+
+% load (['/local-scratch/xla193/cluster_video_/output/UCF-101/output-UCF-101-10-',target,'-9-w.mat'])
+% load /cs/vml2/xla193/cluster_video/output/UCF-101/mappedX.mat
+% load (['/local-scratch/xla193/cluster_video_/output/UCF-101/cop-kmeans-result-fix-',target,'.mat'])
+load (['/local-scratch/xla193/cluster_video_/output/UCF-101/cop-kmeans-fix-veri-1ft.mat'])
 load /local-scratch/xla193/cluster_video_/output/UCF-101/UCF-101-gtlabel-10.mat % label
+load /local-scratch/xla193/cluster_video_/output/UCF-101/output-UCF-101-10-1ft5ep-all-7.mat
 % load ('/cs/vml2/xla193/cluster_video/output/UCF-101/UCF-101-label-20-0ft.mat', 'kmcenters')
 addpath(genpath('/cs/vml2/xla193/dmmc/code/visualization'))
-s = '0ft fix initialization - 0ck';
-% centers = zeros(10,4096);
-% centers(1,:) = data(1,:);
-% centers(2,:) = data(146,:);
-% centers(3,:) = data(260,:);
-% centers(4,:) = data(405,:);
-% centers(5,:) = data(537,:);
-% centers(6,:) = data(645,:);
-% centers(7,:) = data(800,:);
-% centers(8,:) = data(950,:);
-% centers(9,:) = data(1084,:);
-% centers(10,:) = data(1215,:);
+s = ['fix initialization - ',target];
+margin = 1000;
+centers = zeros(10,4096);
+centers(1,:) = data(1,:);
+centers(2,:) = data(146,:);
+centers(3,:) = data(260,:);
+centers(4,:) = data(405,:);
+centers(5,:) = data(537,:);
+centers(6,:) = data(645,:);
+centers(7,:) = data(800,:);
+centers(8,:) = data(950,:);
+centers(9,:) = data(1084,:);
+centers(10,:) = data(1215,:);
 
 
 % [idx, kmcenters, sumd, D] = kmeans(data, 10, ...
@@ -31,16 +37,16 @@ flag = 0;
 beta = 1;
 
 %%%%%%%%%%%%%%%%%%%%visualize%%%%%%%%%%%%%%%%%%%
-% initial_dims = 100;
-% no_dims = 2;
-% perplexity = 30;
-% 
-% mappedX = tsne(data, [], no_dims, initial_dims, perplexity);
+initial_dims = 100;
+no_dims = 2;
+perplexity = 30;
+
+mappedX = tsne(data, [], no_dims, initial_dims, perplexity);
 figure
 gscatter(mappedX(:,1), mappedX(:,2), pdlabels);
 title(s);
 % figure
-% gscatter(mappedX(:,1), mappedX(:,2), pdlabels);
+% gscatter(mappedX(:,1), mappedX(:,2), gtlabels);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 unigt = unique(gtlabels);
@@ -114,7 +120,7 @@ meas.ri = ri
 meas.pa = pa
 meas.nmi= nmi
 
-str = {['ri:   ', num2str(ri)], ['pa:  ', num2str(pa)], ['nmi:', num2str(nmi)]};
+str = {['ri:   ', num2str(ri)], ['pa:  ', num2str(pa)], ['nmi:', num2str(nmi)], ['margin:', num2str(margin)]};
 dim = [.15 .6 .3 .3];
 annotation('textbox', dim, 'String', str, 'FitBoxToText', 'on');
 % save /local-scratch/xla193/cluster_video_/output/UCF-101/outputlabelsingle-UCF-101-10-0ftuser.mat gtlabels pdlabels mappedX meas

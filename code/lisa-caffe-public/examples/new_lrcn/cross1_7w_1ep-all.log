@@ -1,4 +1,35 @@
+I1130 20:49:44.241245 19028 caffe.cpp:136] Use GPU with device ID 0
+I1130 20:49:44.472000 19028 caffe.cpp:144] Starting Optimization
+I1130 20:49:44.472151 19028 solver.cpp:45] Initializing solver from parameters: 
+test_iter: 81
+test_interval: 7777
+base_lr: 1e-08
+display: 20
+max_iter: 4055
+lr_policy: "step"
+gamma: 0.1
+momentum: 0.9
+weight_decay: 0.005
+stepsize: 1622
+snapshot: 811
+snapshot_prefix: "/local-scratch/xla193/cluster_video_/output/UCF-101/snapshots_lstm_RGB/1_-8"
+solver_mode: GPU
+device_id: 0
+random_seed: 1701
+net: "train_test_singleFrame_RGB.prototxt"
+test_state {
+  stage: "test-on-test"
+}
+test_initialization: false
+I1130 20:49:44.472193 19028 solver.cpp:83] Creating training net from net file: train_test_singleFrame_RGB.prototxt
+I1130 20:49:44.472692 19028 net.cpp:258] The NetState phase (0) differed from the phase (1) specified by a rule in layer data
+I1130 20:49:44.472702 19028 net.cpp:258] The NetState phase (0) differed from the phase (1) specified by a rule in layer test_label
+I1130 20:49:44.472717 19028 net.cpp:258] The NetState phase (0) differed from the phase (1) specified by a rule in layer loss
+I1130 20:49:44.472944 19028 net.cpp:42] Initializing net from parameters: 
 name: "singleFrame_RGB"
+state {
+  phase: TRAIN
+}
 layer {
   name: "data"
   type: "ImageData"
@@ -17,19 +48,17 @@ layer {
   }
   image_data_param {
     source: "/local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-labelvect-fix-veri-1ft-random.txt"
-    #source: "/local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-10withgtlabel.txt"
-    root_folder: "frames/"
     batch_size: 50
+    shuffle: false
     new_height: 240
     new_width: 320
-    shuffle: false
+    root_folder: "frames/"
   }
 }
-
 layer {
   name: "train_label"
   type: "HDF5Data"
-  top:  "train_label"
+  top: "train_label"
   include {
     phase: TRAIN
   }
@@ -38,48 +67,6 @@ layer {
     batch_size: 50
   }
 }
-
-layer {
-  name: "data"
-  type: "ImageData"
-  top: "data"
-  top: "label"
-  include {
-    phase: TEST
-    #stage: "test-on-test"
-  }
-  transform_param {
-    mirror: true
-    crop_size: 227
-    mean_value: 103.939
-    mean_value: 116.779
-    mean_value: 123.68
-    flow: false
-  }
-  image_data_param {
-    #source: "/local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-labelvect-fix-veri-1ft-random.txt"
-    source: "/local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-10withgtlabel.txt"
-    root_folder: "frames/"
-    batch_size: 50
-    new_height: 240
-    new_width: 320
-    shuffle: false
-  }
-}
-
-layer {
-  name: "test_label"
-  type: "HDF5Data"
-  top:  "valid_label"
-  include {
-    phase: TEST
-  }
-  hdf5_data_param {
-    source: "/cs/vml4/xla193/cross1_list/valid_label_fix_0-1.txt"
-    batch_size: 50
-  }
-}
-
 layer {
   name: "conv1"
   type: "Convolution"
@@ -383,7 +370,6 @@ layer {
     dropout_ratio: 0.5
   }
 }
-
 layer {
   name: "loss"
   type: "Python"
@@ -391,69 +377,42 @@ layer {
   bottom: "train_label"
   bottom: "label"
   top: "loss"
-  python_param {
-    module: "mylayers"
-    layer: "HardTripletLossLayer"
-    #layer: "TripletLossLayer"
-  }
   loss_weight: 1
   include {
     phase: TRAIN
   }
-}
-layer {
-  name: "loss"
-  type: "Python"
-  bottom: "fc7"
-  bottom: "valid_label"
-  bottom: "label"
-  top: "loss"
   python_param {
     module: "mylayers"
     layer: "HardTripletLossLayer"
-    #layer: "TripletLossLayer"
-  }
-  loss_weight: 1
-  include {
-    phase: TEST
   }
 }
-#layer {
-#  name: "fc8-ucf"
-#  type: "InnerProduct"
-#  bottom: "fc7"
-#  top: "fc8-ucf"
-#  param {
-#    lr_mult: 10
-#    decay_mult: 1
-#  }
-#  param {
-#    lr_mult: 20
-#    decay_mult: 0
-#  }
-#  inner_product_param {
-#   num_output: 101
-#    weight_filler {
-#      type: "gaussian"
-#      std: 0.01
-#    }
-#    bias_filler {
-#      type: "constant"
-#      value: 0
-#    }
-#  }
-#}
-#layer {
-#  name: "loss"
-#  type: "SoftmaxWithLoss"
-#  bottom: "fc8-ucf"
-#  bottom: "label"
-#  top: "loss"
-#}
-#layer {
-#  name: "accuracy"
-#  type: "Accuracy"
-#  bottom: "fc8-ucf"
-#  bottom: "label"
-#  top: "accuracy"
-#}
+I1130 20:49:44.473062 19028 layer_factory.hpp:74] Creating layer data
+I1130 20:49:44.473079 19028 net.cpp:84] Creating Layer data
+I1130 20:49:44.473086 19028 net.cpp:339] data -> data
+I1130 20:49:44.473111 19028 net.cpp:339] data -> label
+I1130 20:49:44.473120 19028 net.cpp:113] Setting up data
+I1130 20:49:44.473127 19028 image_data_layer.cpp:41] Opening file /local-scratch/xla193/cluster_video_/output/UCF-101/list_frm-labelvect-fix-veri-1ft-random.txt
+I1130 20:49:44.473168 19028 image_data_layer.cpp:56] A total of 0 images.
+*** Aborted at 1480567784 (unix time) try "date -d @1480567784" if you are using GNU date ***
+PC: @     0x7fb35b939cae cv::findDecoder()
+*** SIGSEGV (@0x0) received by PID 19028 (TID 0x7fb34dd70940) from PID 0; stack trace: ***
+    @       0x38e2c0f7e0 (unknown)
+    @     0x7fb35b939cae cv::findDecoder()
+    @     0x7fb35b939fa4 cv::imread_()
+    @     0x7fb35b93a565 cv::imread()
+    @     0x7fb3633219bd caffe::ReadImageToCVMat()
+    @     0x7fb36329201a caffe::ImageDataLayer<>::DataLayerSetUp()
+    @     0x7fb363257902 caffe::BaseDataLayer<>::LayerSetUp()
+    @     0x7fb3632579f9 caffe::BasePrefetchingDataLayer<>::LayerSetUp()
+    @     0x7fb363302858 caffe::Net<>::Init()
+    @     0x7fb3633038b5 caffe::Net<>::Net()
+    @     0x7fb36330e9df caffe::Solver<>::InitTrainNet()
+    @     0x7fb36330fb60 caffe::Solver<>::Init()
+    @     0x7fb36330fd38 caffe::Solver<>::Solver()
+    @           0x40fdb0 caffe::GetSolver<>()
+    @           0x40842f train()
+    @           0x40c967 main
+    @       0x38e241ed1d (unknown)
+    @           0x4062b9 (unknown)
+run_singleFrame_RGB.sh: line 5: 19028 Segmentation fault      GLOG_logtostderr=1 $TOOLS/caffe train -solver singleFrame_solver_RGB.prototxt -weights /cs/vml4/xla193/cross1/all-8_iter_2880.caffemodel
+Done.

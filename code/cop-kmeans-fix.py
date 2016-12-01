@@ -61,6 +61,8 @@ def cop_kmeans(dataset, kk, repeat, savecons, savevects, ml=[], cl=[]):
 					if not violate_constraints(i, centers_id[index], index, clusters_, ml, cl):
 						found_cluster = True
 						clusters_[i]  = index+1
+						# clusters_, centers, centers_id, sumd_ = compute_centers(clusters_, dataset)
+						# print "finish:", i
 					else:
 						vialate_count += 1
 						print "violate, try again, number: ", vialate_count, " total allowed: ", break_num, "\r",
@@ -671,7 +673,7 @@ def run(datafile, consfile, k, outfile, repeat, savecons, savevects):
 	data_save = dict()
 	data_save['pdlabels'] = labels
 	data_save['train_labels'] = train_labels
-	sio.savemat(os.path.join(data_root, 'cop-kmeans-result-fix-ft1.mat'), data_save)
+	sio.savemat(os.path.join(data_root, 'cop-kmeans-fix-veri-1ft.mat'), data_save)
 
 if __name__ == '__main__':
 	run(opts.datafile, opts.consfile, opts.ncluster, opts.outfile, opts.repeat, opts.savecons, opts.savevects)

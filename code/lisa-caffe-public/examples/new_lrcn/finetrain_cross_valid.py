@@ -24,7 +24,6 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
   assert os.path.isdir(model_root),    "Model path not exists."
   assert os.path.isdir(net_root),      "Net path not exists."
   with open(os.path.join(model_root, incount_file), 'r') as countf:
-    # pdb.set_trace()
     counts = countf.readlines()[:1374]
 
   data  = np.zeros((len(counts), F),  dtype=np.float32  )
@@ -35,7 +34,7 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
     
   caffe.set_device(device_id)
   net = caffe.Net(os.path.join( net_root, 'train_test_singleFrame_RGB.prototxt' ),
-                  os.path.join( model_root, 'snapshots_singleFrame_RGB/3_fix_margin10e4_10e-9lr_iter_4932.caffemodel' ),
+                  os.path.join( model_root, 'snapshots_singleFrame_RGB/3_fix_margin10e4_10e-9lr_iter_6165.caffemodel' ),
                   caffe.TEST)
   frame_id = 0
   video_feats = np.zeros((N, F))
@@ -63,12 +62,6 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
   for video_id in range( len(counts) ):
     data[video_id,:] = np.mean( video_feats[start_idx:start_idx+int(counts[video_id]), :], axis = 0, keepdims=True  )
     start_idx += int(counts[video_id])
-
-    
-    # if (batch_num * batch_size) % 1000 == 0:
-    #   # output a progress indicator every 1000 samples
-    #   sys.stdout.write( 'processed {0} frames.\n'.format(batch_num * batch_size) )
-    #   sys.stdout.flush()
 
   sys.stdout.write('Done.\n')
   # pdb.set_trace()

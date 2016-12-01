@@ -9,7 +9,7 @@ optparser = optparse.OptionParser()
 optparser.add_option("-i", "--countinput", dest="countinput", default="input-UCF-101-20-fmcount.txt", help="fms number of each video")
 optparser.add_option("-o", "--output", dest="output", default="all-4_pred.mat", help="Output data name")
 optparser.add_option("-m", "--mode", dest="mode", type=int, default=int(0), help="Mode for extracting feature. [ 0-GPU, 1- CPU]")
-optparser.add_option("-s", "--batch_size", dest="batch_size", type=int, default=int(100), help="Batch size.")
+optparser.add_option("-s", "--batch_size", dest="batch_size", type=int, default=int(50), help="Batch size.")
 optparser.add_option("-c", "--device_id", dest="device_id", type=int, default=int(0), help="Device id.")
 optparser.add_option("-n", "--num", dest="num", type=int, default=int(197941), help="Number of instances")
 optparser.add_option("-f", "--feat", dest="feat", type=int, default=int(4096), help="Dimensionality of feature")
@@ -35,7 +35,8 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
     
   caffe.set_device(device_id)
   net = caffe.Net(os.path.join( net_root, 'train_test_singleFrame_RGB.prototxt' ),
-                  os.path.join( model_root, 'snapshots_singleFrame_RGB/0_fix_iter_577.caffemodel' ),
+                  '/cs/vml4/xla193/cross1/all_-7_2ep_iter_3462.caffemodel',
+                  # os.path.join( model_root, 'snapshots_lstm_RGB/1_-8_iter_4055.caffemodel' ),
                   caffe.TEST)
   frame_id = 0
   video_feats = np.zeros((N, F))
