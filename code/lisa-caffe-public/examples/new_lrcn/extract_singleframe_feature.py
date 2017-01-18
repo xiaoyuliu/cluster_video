@@ -35,7 +35,7 @@ def convert_feature(incount_file, out_filename, N, F, device_id, batch_size, mod
     
   caffe.set_device(device_id)
   net = caffe.Net(os.path.join( net_root, 'train_test_singleFrame_RGB.prototxt' ),
-                  '/cs/vml4/xla193/cross1/all_-7_2ep_iter_3462.caffemodel',
+                  '/cs/vml4/xla193/cross1/all3_-9w_2ep_iter_10230.caffemodel',
                   # os.path.join( model_root, 'snapshots_lstm_RGB/1_-8_iter_4055.caffemodel' ),
                   caffe.TEST)
   frame_id = 0

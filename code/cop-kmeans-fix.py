@@ -24,33 +24,80 @@ def cop_kmeans(dataset, kk, repeat, savecons, savevects, ml=[], cl=[]):
 	ml, cl = transitive_closure(ml, cl, len(dataset)) # return two dictionaries
 	finding_count   = 0
 	converged_count = 0
-	update_count    = 0
-	init_count      = 0
-	break_num       = 3e4
-	init_num		= 2 * repeat
+	break_num       = 13740
+	init_num        = 2 * repeat
+	smallest_num    = 3
 
 	sumd = float("inf")
 	centers, centers_id = initialize_centers(dataset, kk)
+	while not check_initialization(centers_id, ml):
+		centers, centers_id = initialize_centers(dataset, kk)
+	print "initialization check passed"
 	clusters = [0] * len(dataset)
 	while(converged_count < repeat):
-		converged = False
 		centers, centers_id = initialize_centers(dataset, kk)
-		init_count          += 1
-		print "initial times: ", init_count, " total allowed: ", init_num
-		if not check_initialization(centers_id, ml):
-			continue
+		while not check_initialization(centers_id, ml):
+			centers, centers_id = initialize_centers(dataset, kk)
 		print "initialization check passed"
-		clusters= [0] * len(dataset)
-		vialate_count   = 0
+		cantfind_flag    = False
+		converged = False
+		clusters  = [0] * len(dataset)
+		s_num = 0
 		while (not converged):
+			vialate_count   = 0
+			print centers_id
 			# print ("-%d-th finding clustering - %f " % (finding_count, sumd))
 			clusters_ = [0] * len(dataset)
 			for l, c_id in enumerate(centers_id):
 				clusters_[c_id] = l+1
 				for k in ml[c_id]:
 					clusters_[k] = l+1
-
 			for i, d in enumerate(dataset): # d:datapoint i:index in dataset
+				if clusters_[i] != 0 and not cl[i]:
+					continue
+				if len(cl[i]) > 0:
+					if clusters_[i] == 0:
+						indices = closet_clusters(centers, d)
+						counter = 0
+						found_cluster = False
+						while (not found_cluster) and (counter < len(indices)):
+							index = indices[counter]
+							if not violate_constraints(i, centers_id[index], index, clusters_, ml, cl):
+								found_cluster = True
+								clusters_[i]  = index+1
+								break
+							else:
+								vialate_count += 1
+								counter += 1
+								print "violate, try again, number: ", vialate_count, " total allowed: ", break_num, "\r",
+								if vialate_count == break_num:
+									break
+							if not found_cluster and counter==len(indices):
+								# raise Exception("can't find cluster for %d-th datapoint" % i)
+								print ("can't find cluster for %d-th datapoint" % i)
+								cantfind_flag = True
+								break
+					for item in cl[i]:
+						if clusters_[item]==0:
+							indices = closet_clusters(centers, dataset[item])
+							counter = 0
+							found_cluster = False
+							while (not found_cluster) and (counter < len(indices)):
+								index = indices[counter]
+								if not violate_constraints(item, centers_id[index], index, clusters_, ml, cl):
+									found_cluster = True
+									clusters_[item]  = index+1
+								else:
+									vialate_count += 1
+									counter += 1
+									print "violate, try again, number: ", vialate_count, " total allowed: ", break_num, "\r",
+									if vialate_count == break_num:
+										break
+								if not found_cluster and counter==len(indices):
+									# raise Exception("can't find cluster for %d-th datapoint" % i)
+									print ("can't find cluster for %d-th datapoint" % i)
+									cantfind_flag = True
+									break
 				if clusters_[i] != 0:
 					continue
 				indices = closet_clusters(centers, d)
@@ -61,47 +108,62 @@ def cop_kmeans(dataset, kk, repeat, savecons, savevects, ml=[], cl=[]):
 					if not violate_constraints(i, centers_id[index], index, clusters_, ml, cl):
 						found_cluster = True
 						clusters_[i]  = index+1
-						# clusters_, centers, centers_id, sumd_ = compute_centers(clusters_, dataset)
-						# print "finish:", i
+						if i == len(dataset)-1:
+							print("%d-th data point clustered." % i)
 					else:
 						vialate_count += 1
+						counter += 1
 						print "violate, try again, number: ", vialate_count, " total allowed: ", break_num, "\r",
 						if vialate_count == break_num:
 							break
-					counter += 1
 					if not found_cluster and counter==len(indices):
-						raise Exception("can't find cluster for %d-th datapoint" % i)
-						# print ("can't find cluster for %d-th datapoint" % i)
-						# break
-				if vialate_count >= break_num:
+						# raise Exception("can't find cluster for %d-th datapoint" % i)
+						print ("can't find cluster for %d-th datapoint" % i)
+						cantfind_flag = True
+						break
+				if vialate_count >= break_num or cantfind_flag:
 					break
 				if not found_cluster and (converged_count == 0):
 					return None
+			if cantfind_flag:
+				break
 			if vialate_count == break_num:
 				if init_count == init_num:
 					repeat = converged_count
 				break
 			clusters_, centers, centers_id, sumd_ = compute_centers(clusters_, dataset)
-
-			finding_count += 1
-
 			converged     = True
 			i = 0
 			while converged and (i < len(dataset)):
-				if clusters[i] != clusters_[i]:
+				if clusters[i] != clusters_[i] or clusters_[i] == 0:
 					converged = False
+					break
 				i += 1
+
+			# if sumd_ == sumd:
+			# 	s_num += 1
+			# 	if s_num == smallest_num:
+			# 		converged = True
+			# if sumd_ < sumd:
+			# 	s_num = 0
+			# 	sumd = sumd_
+
 			clusters = clusters_
+			print centers_id
 			if converged == True:
 				converged_count += 1
-				print ("--%d-th clustering - smallest: %f - now: %f " % (converged_count, sumd, sumd_))
-				print time.ctime()
 				if sumd_ < sumd:
-					s_clusters= map(lambda x: x+1, clusters)
-					# s_clusters   = clusters
+					repeat = converged_count
+					print ("--%d-th clustering - smallest: %f - now: %f " % (converged_count, sumd, sumd_))
+					print time.ctime()
+					s_clusters   = clusters
 					s_centers    = centers_id
-					sumd         = sumd_
-					update_count += 1
+					sumd         = sumd_					
+
+			else:
+				print "not converged yet."
+				print sumd_
+
 	gt_dict = sio.loadmat(os.path.join(data_root, 'UCF-101-gtlabel-10.mat'))
 	gt_array = gt_dict['label']
 	clusters_train = []
@@ -578,7 +640,6 @@ def compute_centers(clusters, dataset):
 		c_to_id[c] = j
 	for j,c in enumerate(clusters):
 		clusters[j] = c_to_id[c]
-
 	ids = list(set(clusters))
 	centers = [ [0]*dim for i in range(k) ]
 	centers_id = [0] * k
@@ -591,7 +652,8 @@ def compute_centers(clusters, dataset):
 		centers_id[id] = data_ids[distance_list[0]]
 		centers[id] = dataset[centers_id[id]]
 		sumds[id] = sum([euclidean(dataset[centers_id[id]], i) for i in datas])
-
+	for i in range(len(clusters)):
+		clusters[i] += 1
 	return clusters, centers, centers_id, sum(sumds)
 
 def transitive_closure(ml, cl, n): # n: the number of data points
@@ -673,7 +735,7 @@ def run(datafile, consfile, k, outfile, repeat, savecons, savevects):
 	data_save = dict()
 	data_save['pdlabels'] = labels
 	data_save['train_labels'] = train_labels
-	sio.savemat(os.path.join(data_root, 'cop-kmeans-fix-veri-1ft.mat'), data_save)
+	sio.savemat(os.path.join(data_root, 'cop-kmeans-fix-veri-8ft.mat'), data_save)
 
 if __name__ == '__main__':
 	run(opts.datafile, opts.consfile, opts.ncluster, opts.outfile, opts.repeat, opts.savecons, opts.savevects)

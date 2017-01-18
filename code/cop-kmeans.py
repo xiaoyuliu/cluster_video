@@ -13,7 +13,7 @@ optparser.add_option("--df", "--datafile", dest ="datafile", default='UCF-101-gt
 optparser.add_option("--cf", "--consfile", dest ="consfile", default=None, help="Input const file name")
 optparser.add_option("-k", "--ncluster",   dest ="ncluster", default=10, help="Input the number of clusters")
 optparser.add_option("--of", "--outfile",  dest ="outfile",  default=None, help="Input output file name")
-optparser.add_option("--rp", "--repeat",   dest ="repeat", default=10, help="Input repeat number of clustering")
+optparser.add_option("--rp", "--repeat",   dest ="repeat", default=50, help="Input repeat number of clustering")
 optparser.add_option("--sc", "--savecons", dest ="savecons", default='const1.mat', help="Input name of save const file")
 optparser.add_option("--sv", "--savevects",dest ="savevects", default=None, help="Input name of save labelvector file")
 (opts, _) = optparser.parse_args()
@@ -25,33 +25,78 @@ def cop_kmeans(dataset, kk, repeat, savecons, savevects, ml=[], cl=[]):
 	finding_count   = 0
 	converged_count = 0
 	update_count    = 0
-	init_count      = 0
-	break_num       = 3e4
-	init_num		= 30 * repeat
+	break_num       = 13740
+	init_num		= 2 * repeat
 
 	sumd = float("inf")
 	centers, centers_id = initialize_centers(dataset, kk)
+	while not check_initialization(centers_id, ml):
+		centers, centers_id = initialize_centers(dataset, kk)
+	print "initialization check passed"
 	clusters = [0] * len(dataset)
 	while(converged_count < repeat):
-		converged = False
-		re_initial_sign = False
 		centers, centers_id = initialize_centers(dataset, kk)
-		print "initial times: ", init_count, " total allowed: ", init_num
-		if not check_initialization(centers_id, ml):
-			continue
-		init_count          += 1
+		while not check_initialization(centers_id, ml):
+			centers, centers_id = initialize_centers(dataset, kk)
 		print "initialization check passed"
-		clusters= [0] * len(dataset)
-		vialate_count   = 0
+		cantfind_flag    = False
+		converged = False
+		clusters  = [0] * len(dataset)
 		while (not converged):
+			vialate_count   = 0
 			# print ("-%d-th finding clustering - %f " % (finding_count, sumd))
 			clusters_ = [0] * len(dataset)
 			for l, c_id in enumerate(centers_id):
 				clusters_[c_id] = l+1
 				for k in ml[c_id]:
 					clusters_[k] = l+1
-
 			for i, d in enumerate(dataset): # d:datapoint i:index in dataset
+				if clusters_[i] != 0 and not cl[i]:
+					continue
+				if len(cl[i]) > 0:
+					if clusters_[i] == 0:
+						indices = closet_clusters(centers, d)
+						counter = 0
+						found_cluster = False
+						while (not found_cluster) and (counter < len(indices)):
+							index = indices[counter]
+							if not violate_constraints(i, centers_id[index], index, clusters_, ml, cl):
+								found_cluster = True
+								clusters_[i]  = index+1
+								break
+							else:
+								vialate_count += 1
+								counter += 1
+								print "violate, try again, number: ", vialate_count, " total allowed: ", break_num, "\r",
+								if vialate_count == break_num:
+									break
+							if not found_cluster and counter==len(indices):
+								# raise Exception("can't find cluster for %d-th datapoint" % i)
+								print ("can't find cluster for %d-th datapoint" % i)
+								pdb.set_trace()
+								cantfind_flag = True
+								break
+					for item in cl[i]:
+						if clusters_[item]==0:
+							indices = closet_clusters(centers, dataset[item])
+							counter = 0
+							found_cluster = False
+							while (not found_cluster) and (counter < len(indices)):
+								index = indices[counter]
+								if not violate_constraints(item, centers_id[index], index, clusters_, ml, cl):
+									found_cluster = True
+									clusters_[item]  = index+1
+								else:
+									vialate_count += 1
+									counter += 1
+									print "violate, try again, number: ", vialate_count, " total allowed: ", break_num, "\r",
+									if vialate_count == break_num:
+										break
+								if not found_cluster and counter==len(indices):
+									# raise Exception("can't find cluster for %d-th datapoint" % i)
+									print ("can't find cluster for %d-th datapoint" % i)
+									cantfind_flag = True
+									break
 				if clusters_[i] != 0:
 					continue
 				indices = closet_clusters(centers, d)
@@ -62,35 +107,37 @@ def cop_kmeans(dataset, kk, repeat, savecons, savevects, ml=[], cl=[]):
 					if not violate_constraints(i, centers_id[index], index, clusters_, ml, cl):
 						found_cluster = True
 						clusters_[i]  = index+1
+						if i == len(dataset)-1:
+							print("%d-th data point clustered." % i)
 					else:
 						vialate_count += 1
+						counter += 1
 						print "violate, try again, number: ", vialate_count, " total allowed: ", break_num, "\r",
 						if vialate_count == break_num:
 							break
-					counter += 1
 					if not found_cluster and counter==len(indices):
-						print("can't find cluster for %d-th datapoint" % i)
-						re_initial_sign = True
-				if re_initial_sign:
-					break
-				if vialate_count >= break_num:
+						# raise Exception("can't find cluster for %d-th datapoint" % i)
+						print ("can't find cluster for %d-th datapoint" % i)
+						pdb.set_trace()
+						cantfind_flag = True
+						break
+				if vialate_count >= break_num or cantfind_flag:
 					break
 				if not found_cluster and (converged_count == 0):
 					return None
-			if vialate_count == break_num or init_count == init_num:
-				repeat = converged_count
+			if cantfind_flag:
 				break
-			if re_initial_sign:
+			if vialate_count == break_num:
+				if init_count == init_num:
+					repeat = converged_count
 				break
 			clusters_, centers, centers_id, sumd_ = compute_centers(clusters_, dataset)
-
-			finding_count += 1
-
 			converged     = True
 			i = 0
 			while converged and (i < len(dataset)):
-				if clusters[i] != clusters_[i]:
+				if clusters[i] != clusters_[i] or clusters_[i] == 0:
 					converged = False
+					break
 				i += 1
 			clusters = clusters_
 			if converged == True:
@@ -98,17 +145,20 @@ def cop_kmeans(dataset, kk, repeat, savecons, savevects, ml=[], cl=[]):
 				print ("--%d-th clustering - smallest: %f - now: %f " % (converged_count, sumd, sumd_))
 				print time.ctime()
 				if sumd_ < sumd:
-					s_clusters= map(lambda x: x+1, clusters)
-					# s_clusters   = clusters
+					# s_clusters= map(lambda x: x+1, clusters)
+					s_clusters   = clusters
 					s_centers    = centers_id
 					sumd         = sumd_
 					update_count += 1
+			else:
+				print "not converged yet."
 	gt_dict = sio.loadmat(os.path.join(data_root, 'UCF-101-gtlabel-10.mat'))
 	gt_array = gt_dict['label']
 	clusters_train = []
 	for i in range(len(s_clusters)):
 		clusters_train.append(s_clusters[i])
-	clusters_train, ml, cl, new_centers = update_const_label(clusters_train, s_centers, gt_array, dataset, ml, cl)
+	clusters_train, ml, cl, new_centers = update_const(clusters_train, s_centers, gt_array, dataset, ml, cl)
+	
 	save_const_vect(ml, cl, savecons, savevects, s_clusters, clusters_train, new_centers)
 	# pdb.set_trace()
 	return s_clusters, clusters_train
@@ -153,18 +203,21 @@ def save_const_vect(ml, cl, savecons, savevects, clusters, clusters_train, cente
 		oneset.add(b)
 
 	const = np.zeros([num_data, num_data])
-	for label, i_center in enumerate(centers_id):
-		clusters_vect[i_center].add(label+1)
+	for i_center in centers_id:
+		label = clusters_train[i_center]
+		clusters_vect[i_center].add(label)
 		for j in ml[i_center]:
-			clusters_vect[j].add(label+1)
+			clusters_vect[j].add(label)
 			add_both(uf_ids, i_center, j)
 			const[i_center][j] = 1
 			const[j][i_center] = 1
 		for k in cl[i_center]:
-			clusters_vect[k].add(-(label+1))
+			clusters_vect[k].add(-label)
 			add_both(uf_ids, i_center, k)
 			const[i_center][k] = -1
 			const[k][i_center] = -1
+	for i in range(num_data):
+		const[i][i]=0
 
 	if not check_label(clusters_vect):
 		print "wrong label vectors"
@@ -191,6 +244,7 @@ def check_label(c_vectors):
 		if -list(vect)[idx] in vect:
 			return False
 	return True
+
 def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 	cluster_array = np.array(clusters_train)
 	ids = list(set(clusters_train))
@@ -227,15 +281,17 @@ def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 			j_gt = gt_array[j][0]
 			if (j_gt == i_gt):
 				clusters_train[j] = clusters_train[i_center]
-				for k in ml[i_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					clusters_train[k] = clusters_train[i_center]
-					add_link(ml, k, i_center)
-					delete_link(cl, k, i_center)
 				add_link(ml, i_center, j)
 				delete_link(cl, i_center, j)
+				for k in ml[i_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != i_center:
+						clusters_train[k] = clusters_train[i_center]
+						add_link(ml, k, i_center)
+						delete_link(cl, k, i_center)
 				for k1 in ml[j]:
 					for k2 in ml[j]:
 						if k1 == k2:
@@ -257,18 +313,20 @@ def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 			if (j_gt != i_gt) and (gt_labels.count(j_gt) > 0):
 				new_center = center_dict[j_gt]
 				new_label = clusters_train[new_center]
-				for k in ml[new_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					add_link(ml, new_center, k)
-					delete_link(cl, new_center, k)
 				add_link(ml, new_center, j)
 				delete_link(cl, new_center, j)
 				add_link(cl, new_center, i_center)
 				delete_link(ml, new_center, i_center)
 				add_link(cl, j, i_center)
 				delete_link(ml, j, i_center)
+				for k in ml[new_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != new_center:
+						add_link(ml, new_center, k)
+						delete_link(cl, new_center, k)
 				for k1 in ml[j]:
 					for k2 in ml[j]:
 						if k1 == k2:
@@ -309,15 +367,17 @@ def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 			j_gt = gt_array[j][0]
 			if (j_gt == i_gt):
 				clusters_train[j] = clusters_train[i_center]
-				for k in ml[i_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					clusters_train[k] = clusters_train[i_center]
-					add_link(ml, k, i_center)
-					delete_link(cl, k, i_center)
 				add_link(ml, i_center, j)
 				delete_link(cl, i_center, j)
+				for k in ml[i_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != i_center:
+						clusters_train[k] = clusters_train[i_center]
+						add_link(ml, k, i_center)
+						delete_link(cl, k, i_center)
 				for k1 in ml[j]:
 					for k2 in ml[j]:
 						if k1 == k2:
@@ -339,18 +399,20 @@ def update_const_label(clusters_train, centers_id, gt_array, dataset, ml, cl):
 			if (j_gt != i_gt) and (gt_labels.count(j_gt) > 0):
 				new_center = center_dict[j_gt]
 				new_label = clusters_train[new_center]
-				for k in ml[new_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					add_link(ml, new_center, k)
-					delete_link(cl, new_center, k)
 				add_link(ml, new_center, j)
 				delete_link(cl, new_center, j)
 				add_link(cl, new_center, i_center)
 				delete_link(ml, new_center, i_center)
 				add_link(cl, j, i_center)
 				delete_link(ml, j, i_center)
+				for k in ml[new_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != new_center:
+						add_link(ml, new_center, k)
+						delete_link(cl, new_center, k)
 				for k1 in ml[j]:
 					for k2 in ml[j]:
 						if k1 == k2:
@@ -427,14 +489,16 @@ def update_const(clusters_train, centers_id, gt_array, dataset, ml, cl):
 						add_link(cl, k1, k2)
 						delete_link(ml, k1, k2)
 			else: # ground truth positive
-				for k in ml[i_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					add_link(ml, i_center, k)
-					delete_link(cl, i_center, k)
 				add_link(ml, i_center, j)
 				delete_link(cl, i_center, j)
+				for k in ml[i_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != i_center:
+						add_link(ml, i_center, k)
+						delete_link(cl, i_center, k)
 				for k in cl[i_center]:
 					add_link(cl, j, k)
 					delete_link(ml, j, k)
@@ -474,14 +538,16 @@ def update_const(clusters_train, centers_id, gt_array, dataset, ml, cl):
 						add_link(cl, k1, k2)
 						delete_link(ml, k1, k2)
 			else: # ground truth positive
-				for k in ml[i_center]:
-					add_link(ml, j, k)
-					delete_link(cl, j, k)
-				for k in ml[j]:
-					add_link(ml, i_center, k)
-					delete_link(cl, i_center, k)
 				add_link(ml, i_center, j)
 				delete_link(cl, i_center, j)
+				for k in ml[i_center]:
+					if k != j:
+						add_link(ml, j, k)
+						delete_link(cl, j, k)
+				for k in ml[j]:
+					if k != i_center:
+						add_link(ml, i_center, k)
+						delete_link(cl, i_center, k)
 				for k in cl[i_center]:
 					add_link(cl, j, k)
 					delete_link(ml, j, k)
@@ -500,7 +566,7 @@ def update_const(clusters_train, centers_id, gt_array, dataset, ml, cl):
 						add_link(cl, k1, k2)
 						delete_link(ml, k1, k2)
 	print "cluster update finishes."
-	return clusters_train, ml, cl
+	return clusters_train, ml, cl, centers_id
 
 def add_link(l_graph, idx, idy):
 	if not idy in l_graph[idx]:
@@ -544,7 +610,6 @@ def violate_constraints(data_index, cluster_index, label, clusters, ml, cl):
 		return False
 	for i in ml[data_index]:
 		if clusters[i] != label+1 and clusters[i] != 0:
-			# clusters[data_index] = clusters[i]
 			return True
 	for i in cl[data_index]:
 		if clusters[i] == label+1:
@@ -563,7 +628,6 @@ def compute_centers(clusters, dataset):
 		c_to_id[c] = j
 	for j,c in enumerate(clusters):
 		clusters[j] = c_to_id[c]
-
 	ids = list(set(clusters))
 	centers = [ [0]*dim for i in range(k) ]
 	centers_id = [0] * k
@@ -576,7 +640,8 @@ def compute_centers(clusters, dataset):
 		centers_id[id] = data_ids[distance_list[0]]
 		centers[id] = dataset[centers_id[id]]
 		sumds[id] = sum([euclidean(dataset[centers_id[id]], i) for i in datas])
-
+	for i in range(len(clusters)):
+		clusters[i] += 1
 	return clusters, centers, centers_id, sum(sumds)
 
 def transitive_closure(ml, cl, n): # n: the number of data points
@@ -621,7 +686,6 @@ def transitive_closure(ml, cl, n): # n: the number of data points
 	for i in ml_graph:
 		for j in ml_graph[i]:
 			if j!=i and (j in cl_graph[i]):
-				pdb.set_trace()
 				raise Exception("inconsistent constraints between %d and %d" % (i,j))
 
 	return ml_graph, cl_graph
@@ -659,7 +723,7 @@ def run(datafile, consfile, k, outfile, repeat, savecons, savevects):
 	data_save = dict()
 	data_save['pdlabels'] = labels
 	data_save['train_labels'] = train_labels
-	sio.savemat(os.path.join(data_root, 'cop-kmeans-result-relabel-rand9.mat'), data_save)
+	sio.savemat(os.path.join(data_root, 'cop-kmeans-rand-veri.mat'), data_save)
 
 if __name__ == '__main__':
 	run(opts.datafile, opts.consfile, opts.ncluster, opts.outfile, opts.repeat, opts.savecons, opts.savevects)

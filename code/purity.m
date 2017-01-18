@@ -19,8 +19,8 @@ s = '0ft randomly initialization - 9ck - relabel';
 % centers(10,:) = data(1215,:);
 
 
-% [idx, kmcenters, sumd, D] = kmeans(data, 10, ...
-%      'Replicates',100,'Display','final','MaxIter',300);
+[idx, kmcenters, sumd, D] = kmeans(data, 10, ...
+     'Replicates',100,'Display','final','MaxIter',300);
 
 % [idx, kmcenters, sumd, D] = kmeans(data, 10, ...
 %        'Display','final','MaxIter',300,'Start',centers);
@@ -31,11 +31,11 @@ flag = 0;
 beta = 1;
 
 %%%%%%%%%%%%%%%%%%%%visualize%%%%%%%%%%%%%%%%%%%
-% initial_dims = 100;
-% no_dims = 2;
-% perplexity = 30;
-% 
-% mappedX = tsne(data, [], no_dims, initial_dims, perplexity);
+initial_dims = 100;
+no_dims = 2;
+perplexity = 30;
+
+mappedX = tsne(data, [], no_dims, initial_dims, perplexity);
 figure
 gscatter(mappedX(:,1), mappedX(:,2), pdlabels);
 title(s);

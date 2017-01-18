@@ -6,7 +6,7 @@ import random
 
 data_root = '/cs/vml4/xla193/cross1_list'
 output_root = '/local-scratch/xla193/cluster_video_/output/UCF-101/'
-pathlabel = 'list_video-fix-veri-0ft.txt'
+pathlabel = 'list_video-fix-veri-7ft.txt'
 
 K = 10
 input_file= os.path.join(output_root, pathlabel)
@@ -51,22 +51,23 @@ all_order_fms = range(len(all_label_fms))
 random.shuffle(all_order_fms)
 all_fpath_rand = np.ndarray.tolist(np.array(all_path_fms)[all_order_fms])
 all_flabel_rand= np.array(all_label_fms)[all_order_fms, :]
-with open(os.path.join(data_root, 'list_frm-labelvect-fix-veri-0ft-random.txt'), 'w') as allf:
+with open(os.path.join(data_root, 'list_frm-labelvect-fix-veri-7ft-random.txt'), 'w') as allf:
 	for x in all_fpath_rand:
 		content = x + ' 0\n'
 		allf.write(content)
 
-all_label_filename = os.path.join(data_root, 'train_labelvect_fix-veri0.h5')
+all_label_filename = os.path.join(data_root, 'train_labelvect_fix-veri7.h5')
 with h5py.File(all_label_filename, 'w') as hf:
 	    hf.create_dataset('train_label',data = all_flabel_rand  )
-with open(os.path.join(data_root, 'train_label_fix_veri_0.txt'), 'w') as f:
+with open(os.path.join(data_root, 'train_label_fix_veri_7.txt'), 'w') as f:
 	    f.write(all_label_filename + '\n')
-	    all_label_filename = os.path.join(data_root, 'valid_labelvect_fix-veri0.h5')
+	    all_label_filename = os.path.join(data_root, 'valid_labelvect_fix-veri7.h5')
 with h5py.File(all_label_filename, 'w') as hf:
 	    hf.create_dataset('valid_label',data = all_flabel_rand  )
-with open(os.path.join(data_root, 'valid_label_fix_veri_0.txt'), 'w') as f:
+with open(os.path.join(data_root, 'valid_label_fix_veri_7.txt'), 'w') as f:
 	    f.write(all_label_filename + '\n')
 
+pdb.set_trace()
 bin = len(lines) / K
 for i in range(K):
 	start_index = i*bin
